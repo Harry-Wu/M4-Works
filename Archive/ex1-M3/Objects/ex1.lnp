@@ -1,0 +1,8 @@
+--cpu Cortex-M3
+".\objects\system_stm32f10x.o"
+".\objects\startup_stm32f10x_cl.o"
+".\objects\main.o"
+--strict --scatter ".\Objects\ex1.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\ex1.map" -o .\Objects\ex1.axf

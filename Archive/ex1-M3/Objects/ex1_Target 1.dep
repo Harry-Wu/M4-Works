@@ -1,0 +1,12 @@
+Dependencies for Project 'ex1', Target 'Target 1': (DO NOT MODIFY !)
+F (.\CMSIS\system_stm32f10x.c)(0x4D783CB0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\CMSIS -I .\user\inc-I D:\M4\Works\ex1-M3\RTE-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I D:\Program\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="520" -DSTM32F10X_HD -DSTM32103ZET6-o .\objects\system_stm32f10x.o --omf_browse .\objects\system_stm32f10x.crf --depend .\objects\system_stm32f10x.d)
+I (CMSIS\stm32f10x.h)(0x4D783CB4)
+I (CMSIS\core_cm3.h)(0x4D523B58)
+I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
+I (CMSIS\system_stm32f10x.h)(0x4D783CAA)
+F (.\CMSIS\startup_stm32f10x_cl.s)(0x4D783CE0)(--cpu Cortex-M3 -g --apcs=interwork -I D:\M4\Works\ex1-M3\RTE-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I D:\Program\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 520" --pd "STM32F10X_HD SETA 1"--list .\listings\startup_stm32f10x_cl.lst --xref -o .\objects\startup_stm32f10x_cl.o --depend .\objects\startup_stm32f10x_cl.d)
+F (.\user\src\main.c)(0x579CBA07)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\CMSIS -I .\user\inc-I D:\M4\Works\ex1-M3\RTE-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-I D:\Program\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="520" -DSTM32F10X_HD -DSTM32103ZET6-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (.\CMSIS\stm32f10x.h)(0x4D783CB4)
+I (.\CMSIS\core_cm3.h)(0x4D523B58)
+I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
+I (.\CMSIS\system_stm32f10x.h)(0x4D783CAA)
