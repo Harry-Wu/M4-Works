@@ -1,0 +1,219 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.11.2.0
+Copyright (C) 2014 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: FKJ AutoBVT, Microsoft, LIC=3UUHL-0T5JR-NRXXL-0JHCH-L92MG-N2G7E
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.11.0.0
+Toolchain Path:  C:\Keil_v5\arm\ARM\ARMCC\bin\
+C Compiler:      Armcc.exe V5.04 update 1 (build 49)
+Assembler:       Armasm.exe V5.04 update 1 (build 49)
+Linker/Locator:  ArmLink.exe V5.04 update 1 (build 49)
+Library Manager: ArmAr.exe V5.04 update 1 (build 49)
+Hex Converter:   FromElf.exe V5.04 update 1 (build 49)
+CPU DLL:         SARMCM3.DLL V5.11.0.0
+Dialog DLL:      DCM.DLL V1.11.0.0
+    Target DLL: Segger\JL2CM3.dll
+Dialog DLL:      TCM.DLL V1.14.1.0
+ 
+<h2>Project:</h2>
+C:\Users\Administrator\Desktop\Week5\works\按键中断2 - delay\test.uvproj
+Project File Date:  08/14/2016
+
+<h2>Output:</h2>
+Rebuild target 'test'
+compiling system_stm32f4xx.c...
+assembling startup_stm32f40_41xxx.s...
+compiling main.c...
+compiling key.c...
+compiling delay.c...
+compiling led.c...
+compiling uart.c...
+compiling exti.c...
+linking...
+Program Size: Code=2520 RO-data=424 RW-data=28 ZI-data=1124  
+".\obj\test.axf" - 0 Error(s), 0 Warning(s).
+Load "C:\\Users\\Administrator\\Desktop\\Week5\\works\\按键中断2 - delay\\obj\\test.axf" 
+Set JLink Project File to "C:\Users\Administrator\Desktop\Week5\works\按键中断2 - delay\JLinkSettings.ini"
+* JLink Info: Device "STM32F407ZG" selected (1024 KB flash, 128 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.80g, compiled Feb 13 2014 20:50:02
+Firmware: J-Link ARM V8 compiled Nov 28 2014 13:44:46
+Hardware: V8.00
+S/N : 286370559 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F407ZG
+VTarget = 3.313V
+State of Pins: 
+TCK: 0, TDI: 1, TDO: 1, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
+</pre>
+</body>
+</html>
+eived 0 bytes !
+***JLink Error: Can not read register 15 (R15) while CPU is running
+**JLink Warning: CPU could not be halted
+***JLink Error: Could not read memory location 0x20000000 when trying to clear soft RAM BP
+Could not start CPU core. (ErrorCode: -1)
+Contents mismatch at: 08000000H  (Flash=AAH  Required=80H) !
+Contents mismatch at: 08000001H  (Flash=AAH  Required=04H) !
+Contents mismatch at: 08000002H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000003H  (Flash=AAH  Required=20H) !
+Contents mismatch at: 08000004H  (Flash=AAH  Required=ADH) !
+Contents mismatch at: 08000005H  (Flash=AAH  Required=03H) !
+Contents mismatch at: 08000006H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000007H  (Flash=AAH  Required=08H) !
+Contents mismatch at: 08000008H  (Flash=AAH  Required=B5H) !
+Contents mismatch at: 08000009H  (Flash=AAH  Required=03H) !
+Contents mismatch at: 0800000AH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800000BH  (Flash=AAH  Required=08H) !
+Contents mismatch at: 0800000CH  (Flash=AAH  Required=B7H) !
+Contents mismatch at: 0800000DH  (Flash=AAH  Required=03H) !
+Contents mismatch at: 0800000EH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800000FH  (Flash=AAH  Required=08H) !
+Contents mismatch at: 08000010H  (Flash=AAH  Required=B9H) !
+Contents mismatch at: 08000011H  (Flash=AAH  Required=03H) !
+Contents mismatch at: 08000012H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000013H  (Flash=AAH  Required=08H) !
+Contents mismatch at: 08000014H  (Flash=AAH  Required=BBH) !
+Contents mismatch at: 08000015H  (Flash=AAH  Required=03H) !
+Contents mismatch at: 08000016H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000017H  (Flash=AAH  Required=08H) !
+Contents mismatch at: 08000018H  (Flash=AAH  Required=BDH) !
+Contents mismatch at: 08000019H  (Flash=AAH  Required=03H) !
+Contents mismatch at: 0800001AH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800001BH  (Flash=AAH  Required=08H) !
+Contents mismatch at: 0800001CH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800001DH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800001EH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800001FH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000020H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000021H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000022H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000023H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000024H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000025H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000026H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000027H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000028H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000029H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800002AH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800002BH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800002CH  (Flash=AAH  Required=BFH) !
+Contents mismatch at: 0800002DH  (Flash=AAH  Required=03H) !
+Contents mismatch at: 0800002EH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800002FH  (Flash=AAH  Required=08H) !
+Contents mismatch at: 08000030H  (Flash=AAH  Required=C1H) !
+Contents mismatch at: 08000031H  (Flash=AAH  Required=03H) !
+Contents mismatch at: 08000032H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000033H  (Flash=AAH  Required=08H) !
+Contents mismatch at: 08000034H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000035H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000036H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000037H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000038H  (Flash=AAH  Required=C3H) !
+Contents mismatch at: 08000039H  (Flash=AAH  Required=03H) !
+Contents mismatch at: 0800003AH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800003BH  (Flash=AAH  Required=08H) !
+Contents mismatch at: 0800003CH  (Flash=AAH  Required=C5H) !
+Contents mismatch at: 0800003DH  (Flash=AAH  Required=03H) !
+Contents mismatch at: 0800003EH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800003FH  (Flash=AAH  Required=08H) !
+Contents mismatch at: 08000040H  (Flash=AAH  Required=C7H) !
+Contents mismatch at: 08000041H  (Flash=AAH  Required=03H) !
+Contents mismatch at: 08000042H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000043H  (Flash=AAH  Required=08H) !
+Contents mismatch at: 08000044H  (Flash=AAH  Required=C7H) !
+Contents mismatch at: 08000045H  (Flash=AAH  Required=03H) !
+Contents mismatch at: 08000046H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000047H  (Flash=AAH  Required=08H) !
+Contents mismatch at: 08000048H  (Flash=AAH  Required=C7H) !
+Contents mismatch at: 08000049H  (Flash=AAH  Required=03H) !
+Contents mismatch at: 0800004AH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800004BH  (Flash=AAH  Required=08H) !
+Contents mismatch at: 0800004CH  (Flash=AAH  Required=C7H) !
+Contents mismatch at: 0800004DH  (Flash=AAH  Required=03H) !
+Contents mismatch at: 0800004EH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800004FH  (Flash=AAH  Required=08H) !
+Contents mismatch at: 08000050H  (Flash=AAH  Required=C7H) !
+Contents mismatch at: 08000051H  (Flash=AAH  Required=03H) !
+Contents mismatch at: 08000052H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000053H  (Flash=AAH  Required=08H) !
+Contents mismatch at: 08000054H  (Flash=AAH  Required=C7H) !
+Contents mismatch at: 08000055H  (Flash=AAH  Required=03H) !
+Contents mismatch at: 08000056H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000057H  (Flash=AAH  Required=08H) !
+Contents mismatch at: 08000058H  (Flash=AAH  Required=77H) !
+Contents mismatch at: 08000059H  (Flash=AAH  Required=0AH) !
+Contents mismatch at: 0800005AH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800005BH  (Flash=AAH  Required=08H) !
+Contents mismatch at: 0800005CH  (Flash=AAH  Required=C7H) !
+Contents mismatch at: 0800005DH  (Flash=AAH  Required=03H) !
+Contents mismatch at: 0800005EH  (Flash=AAH  Required=00H) !
+Contents mismatch at: 0800005FH  (Flash=AAH  Required=08H) !
+Contents mismatch at: 08000060H  (Flash=AAH  Required=99H) !
+Contents mismatch at: 08000061H  (Flash=AAH  Required=0AH) !
+Contents mismatch at: 08000062H  (Flash=AAH  Required=00H) !
+Contents mismatch at: 08000063H  (Flash=AAH  Required=08H) !
+Too many errors to display !
+Error: Flash Download failed  -  "Cortex-M4"
+Load "C:\\Users\\Administrator\\Desktop\\Week5\\works\\按键中断2 - delay\\obj\\test.axf" 
+Set JLink Project File to "C:\Users\Administrator\Desktop\Week5\works\按键中断2 - delay\JLinkSettings.ini"
+* JLink Info: Device "STM32F407ZG" selected (1024 KB flash, 128 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.80g, compiled Feb 13 2014 20:50:02
+Firmware: J-Link ARM V8 compiled Nov 28 2014 13:44:46
+Hardware: V8.00
+S/N : 286370559 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: Found Cortex-M4 r0p1, Little endian.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F407ZG
+VTarget = 3.313V
+State of Pins: 
+TCK: 0, TDI: 1, TDO: 1, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Application running ...
