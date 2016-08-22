@@ -8,10 +8,10 @@
 #include "exti.h"
 
 
-//u8 buf[100];
+//uint8_t buf[100];
 int main(void)
 {
-	//u8 i=0,j=100;
+	//uint8_t i=0,j=100;
 	//硬件初始化
 	NVIC_SetPriorityGrouping(7-2);//设置分组
 	led_init();

@@ -18,10 +18,10 @@ void key_init(void)
 }
 
 
-u8  key_scanf(void)
+uint8_t  key_scanf(void)
 {
-	static u8 key_sta=1;  //key_sta=1则允许识别按键
-	static u8 key1=NO_KEY,key2,key3,time=0;
+	static uint8_t key_sta=1;  //key_sta=1则允许识别按键
+	static uint8_t key1=NO_KEY,key2,key3,time=0;
 	unsigned char key=NO_KEY;
 	key3=key2;
 	key2=key1;

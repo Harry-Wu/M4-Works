@@ -1,7 +1,7 @@
 #include "stm32f4xx.h" 
 #include "stdio.h"
 
-void uart1_init(u32 bond)
+void uart1_init(uint32_t bond)
 {
 	//端口时钟使能PA
 	RCC->AHB1ENR |=0x01;
@@ -49,14 +49,14 @@ void uart1_init(u32 bond)
 
 
 
-u8 rec_buf[100];   //接收缓冲器
-u8 rec_sta=0;       //接收完成与否标志 ，rec_sta=1，接收完成    
-u8 rec_num=0;       //接收计数
+uint8_t rec_buf[100];   //接收缓冲器
+uint8_t rec_sta=0;       //接收完成与否标志 ，rec_sta=1，接收完成    
+uint8_t rec_num=0;       //接收计数
 
 
 void  USART1_IRQHandler(void)
 {
-	u8 rec_data;
+	uint8_t rec_data;
 	//判断是否是接收中断
 	if((rec_sta==0)&&(USART1->SR &(0X01<<5)))//还没有收完，并且有接收到数据
 	{
@@ -85,7 +85,7 @@ void  USART1_IRQHandler(void)
 
 
 
-void uart_send_string(u8 *p)
+void uart_send_string(uint8_t *p)
 {
 	while(*p!='\0')
 	{

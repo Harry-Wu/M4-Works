@@ -1,5 +1,6 @@
 #ifndef _KEY_H_
 #define _KEY_H_
+//#include "stm32f407xx.h"
 #include "stm32f4xx.h" 
 #include "io_bit.h"
 //#define KEY1   ((GPIOA->IDR>>0) &0X01)
@@ -23,7 +24,7 @@
 
 
 void key_init(void);
-u8  key_scanf(void);
+uint8_t  key_scanf(void);
 
 #endif
 
