@@ -10,6 +10,8 @@
 .\objects\main.o: D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h
 .\objects\main.o: .\user\inc\key.h
 .\objects\main.o: .\user\inc\io_bit.h
+.\objects\main.o: .\user\inc\MyTypeDef.h
+.\objects\main.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h
 .\objects\main.o: .\user\inc\led.h
 .\objects\main.o: .\user\inc\delay.h
 .\objects\main.o: .\user\inc\uart.h

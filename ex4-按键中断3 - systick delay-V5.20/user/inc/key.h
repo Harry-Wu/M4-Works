@@ -3,6 +3,7 @@
 //#include "stm32f407xx.h"
 #include "stm32f4xx.h" 
 #include "io_bit.h"
+#include "MyTypeDef.h"
 //#define KEY1   ((GPIOA->IDR>>0) &0X01)
 //#define KEY2   ((GPIOE->IDR>>2) &0X01)
 //#define KEY3   ((GPIOE->IDR>>3) &0X01)
@@ -24,7 +25,7 @@
 
 
 void key_init(void);
-uint8_t  key_scanf(void);
+u8  key_scanf(void);
 
 #endif
 

@@ -9,3 +9,5 @@
 .\objects\delay.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h
 .\objects\delay.o: D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h
 .\objects\delay.o: .\user\inc\delay.h
+.\objects\delay.o: .\user\inc\MyTypeDef.h
+.\objects\delay.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h
