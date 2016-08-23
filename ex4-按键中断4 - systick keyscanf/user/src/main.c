@@ -1,3 +1,12 @@
+/*****************************************************************************
+@File name:  
+@Description: 在前一个练习基础上，添加用keyscanf
+@Author: Harry Wu
+@Version: V1.0
+@Date: 
+@History: 
+*****************************************************************************/
+
 #include "stm32f4xx.h" 
 #include "key.h" 
 #include "led.h"
@@ -6,6 +15,7 @@
 #include "uart.h"
 #include "stdio.h"
 #include "exti.h"
+#include "MyTypeDef.h"
 
 
 //u8 buf[100];

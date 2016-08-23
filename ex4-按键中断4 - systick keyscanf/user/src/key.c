@@ -1,5 +1,6 @@
 #include "stm32f4xx.h" 
 #include "key.h"
+#include "MyTypeDef.h"
 
 void key_init(void)
 {

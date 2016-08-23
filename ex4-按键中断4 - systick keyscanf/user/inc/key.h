@@ -2,6 +2,7 @@
 #define _KEY_H_
 #include "stm32f4xx.h" 
 #include "io_bit.h"
+#include "MyTypeDef.h"
 //#define KEY1   ((GPIOA->IDR>>0) &0X01)
 //#define KEY2   ((GPIOE->IDR>>2) &0X01)
 //#define KEY3   ((GPIOE->IDR>>3) &0X01)
