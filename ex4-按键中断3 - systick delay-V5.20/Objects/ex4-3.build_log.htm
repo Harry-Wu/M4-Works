@@ -3,12 +3,12 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: μVision V5.20.0.0
+IDE-Version: 礦ision V5.20.0.0
 Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: h w, sz, LIC=W9630-B4Q6M-EYZVT-RDQYN-ZSP4D-ILYKZ
+License Information: H w, tc, LIC=76FZ9-4DKY0-JIF5S-LLH77-9YMSB-J6VES
  
 Tool Versions:
-Toolchain:       MDK-ARM Professional  Version: 5.20
+Toolchain:       MDK-ARM Plus  Version: 5.20
 Toolchain Path:  D:\Program\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 2 (build 183)
 Assembler:       Armasm.exe V5.06 update 2 (build 183)
@@ -21,22 +21,23 @@ Target DLL:      Segger\JL2CM3.dll V2.99.20.0
 Dialog DLL:      TCM.DLL V1.14.9.0
  
 <h2>Project:</h2>
-D:\Git_Repository\GitHub\M4-Works\ex4-按键中断3 - systick delay-V5.20\ex4-3.uvprojx
-Project File Date:  08/22/2016
+D:\Works\M4-Works\ex4-按键中断3 - systick delay-V5.20\ex4-3.uvprojx
+Project File Date:  08/23/2016
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 2 (build 183)', folder: 'D:\Program\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'ex4-3'
-compiling key.c...
+compiling main.c...
+compiling sys.c...
+compiling led.c...
 compiling delay.c...
 compiling exti.c...
-compiling led.c...
-compiling main.c...
 compiling uart.c...
+compiling key.c...
 assembling startup_stm32f407xx.s...
 compiling system_stm32f4xx.c...
 linking...
-Program Size: Code=1752 RO-data=424 RW-data=4 ZI-data=1124  
+Program Size: Code=2152 RO-data=424 RW-data=4 ZI-data=1124  
 ".\Objects\ex4-3.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -54,7 +55,7 @@ Package Vendor: Keil
    * Component: Startup Version: 2.5.0
 
 <h2>Collection of Component include folders:</h2>
-  D:\Git_Repository\GitHub\M4-Works\ex4-按键中断3 - systick delay-V5.20\RTE
+  D:\Works\M4-Works\ex4-按键中断3 - systick delay-V5.20\RTE
   D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
   D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
@@ -63,12 +64,12 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:4.3.0
 
    * Component: Keil::Device:Startup:2.5.0
-      Source file:   MDK\Device\Source\ARM\STM32F40xxx_41xxx_OPT.s
       Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
-      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s
+      Source file:   MDK\Device\Source\ARM\STM32F40xxx_41xxx_OPT.s
       Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
-Build Time Elapsed:  00:00:14
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

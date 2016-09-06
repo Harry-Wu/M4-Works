@@ -1,7 +1,7 @@
 #ifndef _UART_H_
 #define _UART_H_
 #include "stm32f4xx.h"
-#include "io_bit.h"
+//#include "io_bit.h"
 #include "MyTypeDef.h"
 
 

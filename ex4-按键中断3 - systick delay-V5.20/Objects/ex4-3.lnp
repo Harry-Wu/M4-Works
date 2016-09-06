@@ -5,6 +5,7 @@
 ".\objects\led.o"
 ".\objects\main.o"
 ".\objects\uart.o"
+".\objects\sys.o"
 ".\objects\startup_stm32f407xx.o"
 ".\objects\system_stm32f4xx_1.o"
 --library_type=microlib --strict --scatter ".\Objects\ex4-3.sct"

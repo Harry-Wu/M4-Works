@@ -1,0 +1,37 @@
+Dependencies for Project 'ex1', Target 'ex1': (DO NOT MODIFY !)
+F (.\CMSIS\system_stm32f4xx.c)(0x57B28AA5)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I .\CMSIS -I .\user\inc-I D:\Program\Keil_v5\ARM\RV31\INC-I D:\Program\Keil_v5\ARM\CMSIS\Include-I D:\Program\Keil_v5\ARM\Inc\ST\STM32F4xx-D__UVISION_VERSION="520" -DSTM32F40_41xxx -DSTM32F40_41xxx-o .\obj\system_stm32f4xx.o --omf_browse .\obj\system_stm32f4xx.crf --depend .\obj\system_stm32f4xx.d)
+I (CMSIS\stm32f4xx.h)(0x57B28AA5)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x559CEB9A)
+I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559CEB9A)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559CEB9A)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x559CEB9A)
+I (CMSIS\system_stm32f4xx.h)(0x57B28AA5)
+F (.\CMSIS\startup_stm32f40_41xxx.s)(0x57B28AA5)(--cpu Cortex-M4.fp -g --apcs=interwork -I D:\Program\Keil_v5\ARM\RV31\INC-I D:\Program\Keil_v5\ARM\CMSIS\Include-I D:\Program\Keil_v5\ARM\Inc\ST\STM32F4xx--pd "__UVISION_VERSION SETA 520"--list .\list\startup_stm32f40_41xxx.lst --xref -o .\obj\startup_stm32f40_41xxx.o --depend .\obj\startup_stm32f40_41xxx.d)
+F (.\user\src\main.c)(0x57B28AA5)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I .\CMSIS -I .\user\inc-I D:\Program\Keil_v5\ARM\RV31\INC-I D:\Program\Keil_v5\ARM\CMSIS\Include-I D:\Program\Keil_v5\ARM\Inc\ST\STM32F4xx-D__UVISION_VERSION="520" -DSTM32F40_41xxx -DSTM32F40_41xxx-o .\obj\main.o --omf_browse .\obj\main.crf --depend .\obj\main.d)
+I (.\CMSIS\stm32f4xx.h)(0x57B28AA5)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x559CEB9A)
+I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559CEB9A)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559CEB9A)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x559CEB9A)
+I (.\CMSIS\system_stm32f4xx.h)(0x57B28AA5)
+I (.\user\inc\key.h)(0x57B28AA5)
+F (.\user\src\key.c)(0x57B28AA5)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I .\CMSIS -I .\user\inc-I D:\Program\Keil_v5\ARM\RV31\INC-I D:\Program\Keil_v5\ARM\CMSIS\Include-I D:\Program\Keil_v5\ARM\Inc\ST\STM32F4xx-D__UVISION_VERSION="520" -DSTM32F40_41xxx -DSTM32F40_41xxx-o .\obj\key.o --omf_browse .\obj\key.crf --depend .\obj\key.d)
+I (.\CMSIS\stm32f4xx.h)(0x57B28AA5)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x559CEB9A)
+I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559CEB9A)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559CEB9A)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x559CEB9A)
+I (.\CMSIS\system_stm32f4xx.h)(0x57B28AA5)
+I (.\user\inc\key.h)(0x57B28AA5)
+I (.\user\inc\delay.h)(0x57B28AA5)
+F (.\user\src\delay.c)(0x57B28AA5)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I .\CMSIS -I .\user\inc-I D:\Program\Keil_v5\ARM\RV31\INC-I D:\Program\Keil_v5\ARM\CMSIS\Include-I D:\Program\Keil_v5\ARM\Inc\ST\STM32F4xx-D__UVISION_VERSION="520" -DSTM32F40_41xxx -DSTM32F40_41xxx-o .\obj\delay.o --omf_browse .\obj\delay.crf --depend .\obj\delay.d)
+I (.\CMSIS\stm32f4xx.h)(0x57B28AA5)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cm4.h)(0x559CEB9A)
+I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559CEB9A)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559CEB9A)
+I (D:\Program\Keil_v5\ARM\CMSIS\Include\core_cm4_simd.h)(0x559CEB9A)
+I (.\CMSIS\system_stm32f4xx.h)(0x57B28AA5)

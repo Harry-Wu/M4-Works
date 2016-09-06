@@ -9,4 +9,6 @@
 .\objects\led.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h
 .\objects\led.o: D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h
 .\objects\led.o: .\user\inc\led.h
-.\objects\led.o: .\user\inc\io_bit.h
+.\objects\led.o: .\user\inc\sys.h
+.\objects\led.o: .\user\inc\MyTypeDef.h
+.\objects\led.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h

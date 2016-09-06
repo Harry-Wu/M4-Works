@@ -407,6 +407,11 @@
               <FileType>1</FileType>
               <FilePath>.\user\src\uart.c</FilePath>
             </File>
+            <File>
+              <FileName>sys.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\src\sys.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -1,7 +1,8 @@
-#include "stm32f4xx.h" 
+#include "stm32f4xx.h"
+#include "sys.h"
 #include "key.h" 
 #include "led.h"
-#include "io_bit.h"
+//#include "io_bit.h"
 #include "delay.h"
 #include "uart.h"
 #include "stdio.h"
@@ -10,7 +11,9 @@
 
 //uint8_t buf[100];
 int main(void)
-{
+{	
+	Stm32_Clock_Init(336,8,2,7);//设置时钟,168Mhz
+	
 	//uint8_t i=0,j=100;
 	//硬件初始化
 	NVIC_SetPriorityGrouping(7-2);//设置分组
@@ -27,5 +30,4 @@ int main(void)
 	}
 	
 }
-
 

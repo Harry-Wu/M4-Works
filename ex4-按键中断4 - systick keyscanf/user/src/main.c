@@ -1,6 +1,6 @@
 /*****************************************************************************
 @File name:  
-@Description: 在前一个练习基础上，添加用keyscanf
+@Description: 在前一个练习基础上，添加用keyscanf去检测按键(中断方式检测按键容易导致多次判断)
 @Author: Harry Wu
 @Version: V1.0
 @Date: 
