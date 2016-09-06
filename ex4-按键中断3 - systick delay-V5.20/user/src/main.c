@@ -25,7 +25,7 @@ int main(void)
 	exti9_soft_init();
 	while(1)
 	{
-		delay_ms(100);
+		delay_ms(500);
 		EXTI->SWIER |= 0x01<<9; //软件中断事件寄存器置1
 	}
 	
