@@ -1,0 +1,14 @@
+.\objects\spi.o: user\src\spi.c
+.\objects\spi.o: D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+.\objects\spi.o: D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h
+.\objects\spi.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h
+.\objects\spi.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\spi.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\objects\spi.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\objects\spi.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+.\objects\spi.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h
+.\objects\spi.o: D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h
+.\objects\spi.o: .\user\inc\spi.h
+.\objects\spi.o: .\user\inc\sys.h
+.\objects\spi.o: .\user\inc\MyTypeDef.h
+.\objects\spi.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h
