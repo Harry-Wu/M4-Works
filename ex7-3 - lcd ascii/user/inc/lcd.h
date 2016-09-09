@@ -61,6 +61,8 @@ void LCD_DrawRectangle(u16 x1, u16 y1, u16 x2, u16 y2);
 void LCD_DrawSolidRectangle(u16 x1, u16 y1, u16 x2, u16 y2, u16 color);
 
 
-void show_ascii(u16 x, u16 y, s8 a);
+void show_ascii(u16 x, u16 y, s8 a, u8 mode);
+void LCD_ShowString(u16 x, u16 y, u8 *p, u8 mode);
+
 
 #endif

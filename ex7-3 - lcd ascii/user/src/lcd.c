@@ -391,7 +391,8 @@ void LCD_DrawSolidRectangle(u16 x1, u16 y1, u16 x2, u16 y2, u16 color)
 	LCD_ILI9341_Parameter (319&0xff);
 }
 
-void show_ascii(u16 x, u16 y, s8 a)
+//mode: 0:覆盖模式, 1:叠加模式
+void show_ascii(u16 x, u16 y, s8 a, u8 mode)
 {
 	u16 i,j,_data;
 	u16 color = POINT_COLOR;
@@ -408,9 +409,12 @@ void show_ascii(u16 x, u16 y, s8 a)
 			}
 			else
 			{
-				POINT_COLOR=BACK_COLOR;
-				LCD_DrawPoint(x,y);
-				POINT_COLOR=color;
+				if(mode==0)
+				{
+					POINT_COLOR=BACK_COLOR;
+					LCD_DrawPoint(x,y);
+					POINT_COLOR=color;
+				}
 			}
 			//一个点处理完后进行的动作
 			_data = _data<<1;
@@ -421,5 +425,15 @@ void show_ascii(u16 x, u16 y, s8 a)
 				y++;
 			}
 		}	
+	}
+}
+
+void LCD_ShowString(u16 x, u16 y, u8 *p, u8 mode)
+{
+	while(*p != '\0')
+	{
+		show_ascii(x, y, *p, mode);
+		p++;
+		x = x+8;
 	}
 }

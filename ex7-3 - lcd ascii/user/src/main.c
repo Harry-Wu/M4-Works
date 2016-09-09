@@ -2,9 +2,11 @@
 @File name:  
 @Description: 操作ILI9341驱动的2.8寸显示屏，在屏幕上画实心圆和实心矩形 
 @Author: Harry Wu
-@Version: V1.0
+@Version: V1.1
 @Date: 
-@History: 基于之前画空心圆和空心矩形的工程
+@History: 
+		V1.0:加入ASCII码显示
+		V1.1: ASCII码显示增加叠加显示模式，可以显示字符串了
 *****************************************************************************/
 
 #include "stm32f4xx.h" 
@@ -42,28 +44,32 @@ int main(void)
 	Draw_Circle(120,160,100);
 	LCD_DrawLine(0,0,239,319);
 	LCD_DrawRectangle(10,10,60,60);
-	LCD_DrawSolidRectangle(180, 10, 230, 60, RED);
+	LCD_DrawSolidRectangle(10, 10, 230, 60, RED);
 	Draw_SolidCircle(120,160,50);
 	
-	show_ascii(100, 10, 's');
+	show_ascii(100, 10, 's', 1);
 	delay_ms(500);
-	show_ascii(108, 10, 'o');
+	show_ascii(108, 10, 'o', 1);
 	delay_ms(500);
-	show_ascii(116, 10, 'l');
+	show_ascii(116, 10, 'l', 1);
 	delay_ms(500);
-	show_ascii(124, 10, 'v');
+	show_ascii(124, 10, 'v', 1);
 	delay_ms(500);
-	show_ascii(132, 10, 'e');
+	show_ascii(132, 10, 'e', 1);
 	
-	show_ascii(100, 30, 'L');
+	show_ascii(100, 30, 'L', 0);
 	delay_ms(500);
-	show_ascii(108, 30, 'O');
+	show_ascii(108, 30, 'O', 0);
 	delay_ms(500);
-	show_ascii(116, 30, 'V');
+	show_ascii(116, 30, 'V', 0);
 	delay_ms(500);
-	show_ascii(124, 30, 'E');
+	show_ascii(124, 30, 'E', 0);
 	delay_ms(500);
-	show_ascii(132, 30, '!');
+	show_ascii(132, 30, '!', 0);
+	
+	delay_ms(500);
+	BACK_COLOR = GREEN;
+	LCD_ShowString(80,160,"hello, how are you?",0);
 	
 	while(1)
 	{
