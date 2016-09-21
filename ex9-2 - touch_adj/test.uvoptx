@@ -82,47 +82,83 @@
         <Book>
           <Number>0</Number>
           <Title>STM32F4-Discovery Quick Start Guide (STM32F4-Discovery)</Title>
+<<<<<<< HEAD
           <Path>D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Documentation\32F4-DISCOVERY_QSG.pdf</Path>
+=======
+          <Path>D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Documentation\32F4-DISCOVERY_QSG.pdf</Path>
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
         </Book>
         <Book>
           <Number>1</Number>
           <Title>MCBSTM32F400 Quick Start Guide (MCBSTM32F400)</Title>
+<<<<<<< HEAD
           <Path>D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Documentation\MCBSTM32F400_QSG.pdf</Path>
+=======
+          <Path>D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Documentation\MCBSTM32F400_QSG.pdf</Path>
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
         </Book>
         <Book>
           <Number>2</Number>
           <Title>User Manual (MCBSTM32F400)</Title>
+<<<<<<< HEAD
           <Path>D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\MDK\Boards\Keil\MCBSTM32F400\Documentation\mcbstm32f200.chm</Path>
+=======
+          <Path>D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\MDK\Boards\Keil\MCBSTM32F400\Documentation\mcbstm32f200.chm</Path>
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
         </Book>
         <Book>
           <Number>3</Number>
           <Title>Schematics (MCBSTM32F400)</Title>
+<<<<<<< HEAD
           <Path>D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\MDK\Boards\Keil\MCBSTM32F400\Documentation\mcbstm32f400-schematics.pdf</Path>
+=======
+          <Path>D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\MDK\Boards\Keil\MCBSTM32F400\Documentation\mcbstm32f400-schematics.pdf</Path>
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
         </Book>
         <Book>
           <Number>4</Number>
           <Title>Getting Started (STM32F4-Discovery)</Title>
+<<<<<<< HEAD
           <Path>D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\DM00037368.pdf</Path>
+=======
+          <Path>D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\DM00037368.pdf</Path>
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
         </Book>
         <Book>
           <Number>5</Number>
           <Title>User Manual (STM32F4-Discovery)</Title>
+<<<<<<< HEAD
           <Path>D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\DM00039084.pdf</Path>
+=======
+          <Path>D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\DM00039084.pdf</Path>
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
         </Book>
         <Book>
           <Number>6</Number>
           <Title>Bill of Materials (STM32F4-Discovery)</Title>
+<<<<<<< HEAD
           <Path>D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\stm32f4discovery_bom.zip</Path>
+=======
+          <Path>D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\stm32f4discovery_bom.zip</Path>
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
         </Book>
         <Book>
           <Number>7</Number>
           <Title>Gerber Files (STM32F4-Discovery)</Title>
+<<<<<<< HEAD
           <Path>D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\stm32f4discovery_gerber.zip</Path>
+=======
+          <Path>D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\stm32f4discovery_gerber.zip</Path>
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
         </Book>
         <Book>
           <Number>8</Number>
           <Title>Schematics (STM32F4-Discovery)</Title>
+<<<<<<< HEAD
           <Path>D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\stm32f4discovery_sch.zip</Path>
+=======
+          <Path>D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\stm32f4discovery_sch.zip</Path>
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
         </Book>
         <Book>
           <Number>9</Number>
@@ -157,7 +193,11 @@
         <tRSysVw>1</tRSysVw>
         <sRunDeb>0</sRunDeb>
         <sLrtime>0</sLrtime>
+<<<<<<< HEAD
         <nTsel>3</nTsel>
+=======
+        <nTsel>11</nTsel>
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
         <sDll></sDll>
         <sDllPa></sDllPa>
         <sDlgDll></sDlgDll>
@@ -168,7 +208,11 @@
         <tDlgDll></tDlgDll>
         <tDlgPa></tDlgPa>
         <tIfile></tIfile>
+<<<<<<< HEAD
         <pMon>Segger\JL2CM3.dll</pMon>
+=======
+        <pMon>STLink\ST-LINKIII-KEIL_SWO.dll</pMon>
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
       </DebugOpt>
       <TargetDriverDllRegistry>
         <SetRegEntry>
@@ -179,7 +223,11 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>JL2CM3</Key>
+<<<<<<< HEAD
           <Name>-U269200000 -O78 -S2 -ZTIFSpeedSel5000 -A0 -C0 -JU1 -JI127.0.0.1 -JP0 -RST0 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(4) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -TB1 -TFE0 -FO15 -FD20000000 -FC1000 -FN1 -FF0STM32F4xx_1024.FLM -FS08000000 -FL0100000 -FP0($$Device:STM32F407ZGTx$CMSIS\Flash\STM32F4xx_1024.FLM)</Name>
+=======
+          <Name>-U269200000 -O14 -S2 -ZTIFSpeedSel5000 -A0 -C0 -JU1 -JI127.0.0.1 -JP0 -RST0 -N00("ARM CoreSight JTAG-DP") -D00(4BA00477) -L00(4) -N01("Unknown JTAG device") -D01(06413041) -L01(5) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -TB1 -TFE0 -FO15 -FD20000000 -FC1000 -FN1 -FF0STM32F4xx_1024.FLM -FS08000000 -FL0100000 -FP0($$Device:STM32F407ZGTx$CMSIS\Flash\STM32F4xx_1024.FLM)</Name>
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -430,7 +478,11 @@
       <GroupNumber>2</GroupNumber>
       <FileNumber>16</FileNumber>
       <FileType>1</FileType>
+<<<<<<< HEAD
       <tvExp>1</tvExp>
+=======
+      <tvExp>0</tvExp>
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\user\src\touch.c</PathWithFileName>

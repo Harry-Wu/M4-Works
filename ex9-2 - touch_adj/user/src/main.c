@@ -1,11 +1,20 @@
 /*****************************************************************************
 @File name:  
+<<<<<<< HEAD
 @Description: 开机进行校准, 校准后执行其他程序, 添加绘画板程序验证校准是否OK 
+=======
+@Description: 在ex9-1能识别x,y坐标的基础上,加上触摸屏校准 
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 @Author: Harry Wu
 @Version: V1.0
 @Date: 
 @History: 
+<<<<<<< HEAD
 		V1.0:画板还无法正常使用, while(1)中其他程序导致了延时
+=======
+		V1.0:开机校准触摸屏
+		
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 		
 *****************************************************************************/
 
@@ -21,12 +30,16 @@
 #include "delay.h"
 #include "flash.h"
 #include "lcd.h"
+<<<<<<< HEAD
 #include "rtc.h"
+=======
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 #include "touch.h"
 
 
 u8 *p="hello world1234567890\r\n";
 u8 buf[100];
+<<<<<<< HEAD
 //u8 sta;
 int main(void)
 {
@@ -36,6 +49,14 @@ int main(void)
 	u8 t;
 	u8 tbuf[40];
 	
+=======
+u8 sta;
+int main(void)
+{
+	_TOUCH_TYPEDEF touch_add;
+	//Stm32_Clock_Init(336, 8, 2, 7);  //系统时钟186MHz
+
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 	NVIC_SetPriorityGrouping(7-2);//设置分组
 	at24c02_init( );
 	//硬件初始化
@@ -46,11 +67,18 @@ int main(void)
 	SPI_Flash_Init();
 	lcd_init();
 	
+<<<<<<< HEAD
 	RTC_Init();
 	RTC_Set_WakeUp(4,0);
 	
 	touch_init();
 	touch_adj();
+=======
+	//RTC_Init();
+	//RTC_Set_WakeUp();
+	
+	touch_init();
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 	
 	Draw_Circle(120,160,100);
 	LCD_DrawLine(0,0,239,319);
@@ -78,12 +106,17 @@ int main(void)
 	delay_ms(100);
 	show_ascii(132, 30, '!', 0);
 	
+<<<<<<< HEAD
 	delay_ms(100);
+=======
+	delay_ms(500);
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 	BACK_COLOR = GREEN;
 	LCD_ShowString(80,160,"hello, how are you?",0);
 	
 	LCD_Show_CH(80, 160+16, 0, 0);
 	LCD_Show_CH(80+16, 160+16, 1, 0);
+<<<<<<< HEAD
 	LCD_Show_CH(80+32, 160+16, 2, 0);
 	
 	delay_ms(100);
@@ -116,6 +149,18 @@ int main(void)
 		get_touch_ad_filled(&touch_add);
 		printf("x = %4d y = %4d\r\n", touch_add.x, touch_add.y);
 		//delay_ms(500);
+=======
+	//LCD_Show_CH(80+32, 160+16, 2, 0);
+	
+	//delay_ms(500);
+	//LCD_ShowPic(0, 0, (u8 *)gImage_Betty2014);
+	
+	while(1)
+	{
+		get_touch_ad_filled(&touch_add);
+		printf("x = %4d y = %4d\r\n", touch_add.x, touch_add.y);
+		delay_ms(500);
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 //		printf("0x%x\r\n",SPI_FLASH_TYPE);
 //		delay_ms(500);
 //		printf("HELLO\r\n");

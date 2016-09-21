@@ -83,7 +83,11 @@ u16 get_touch_ad(u8 common)
 	return _data;
 }
 
+<<<<<<< HEAD
 void get_touch_ad_filled(_TOUCH_CSYS_TYPEDEF *p)
+=======
+void get_touch_ad_filled(_TOUCH_TYPEDEF *p)
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 {
 	u8 i,j;
 	u16 buf[10],a;  //a用来临时存放较大值和总和
@@ -135,6 +139,7 @@ void get_touch_ad_filled(_TOUCH_CSYS_TYPEDEF *p)
 	p->y = a/8;
 }
 
+<<<<<<< HEAD
 void LCD_DrawCross(u16 x, u16 y, u16 len)
 {
 	LCD_DrawLine(x-len/2,y,x+len/2,y);
@@ -270,3 +275,11 @@ void CNV_touch2lcd(_TOUCH_CSYS_TYPEDEF *p)
 		p->y=0xffff;
 	}
 }
+=======
+void LCD_DrawCross(u16 x, u16 y, u16 lens)
+{
+	
+}
+
+_TOUCH_ADJ_TPYEDEF    touch_adj_parm;
+>>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
