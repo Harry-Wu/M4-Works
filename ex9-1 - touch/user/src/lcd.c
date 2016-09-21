@@ -532,7 +532,8 @@ void LCD_ShowPic(u16 x, u16 y, u8 *p)
 	for(i=0; i<pic_type->w*pic_type->h; i++)
 	{
 		lcd_send_show_data(*(p+8+2*i) | (*(p+8+2*i+1)<<8));  //图片数组中两个数据组成16位的RGB像素值，而且后一个是高位，所以左移8位拼起来
-		delay_us(100);
+		//增加效果而加的延时, 可去掉
+		delay_us(2);
 	}
 	
 	//写完之后把x,y限定的区域改回成全屏幕

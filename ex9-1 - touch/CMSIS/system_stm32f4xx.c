@@ -314,13 +314,9 @@
 #if defined (STM32F40_41xxx) || defined (STM32F427_437xx) || defined (STM32F429_439xx) || defined (STM32F401xx)
 /* PLL_VCO = (HSE_VALUE or HSI_VALUE / PLL_M) * PLL_N */
 
-<<<<<<< HEAD
 //#define PLL_M      25
 #define PLL_M      8
-=======
-#define PLL_M      25
-//#define PLL_M      8
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
+
 #else /* STM32F411xE */
 #if defined (USE_HSE_BYPASS)
 #define PLL_M      8    

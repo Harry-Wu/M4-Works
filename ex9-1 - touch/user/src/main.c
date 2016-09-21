@@ -21,32 +21,21 @@
 #include "delay.h"
 #include "flash.h"
 #include "lcd.h"
-<<<<<<< HEAD
 #include "rtc.h"
-=======
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 #include "touch.h"
 
 
 u8 *p="hello world1234567890\r\n";
 u8 buf[100];
-<<<<<<< HEAD
 //u8 sta;
-=======
-u8 sta;
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 int main(void)
 {
 	_TOUCH_TYPEDEF touch_add;
 	//Stm32_Clock_Init(336, 8, 2, 7);  //系统时钟186MHz
-<<<<<<< HEAD
 	
 	u8 t;
 	u8 tbuf[40];
 	
-=======
-
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 	NVIC_SetPriorityGrouping(7-2);//设置分组
 	at24c02_init( );
 	//硬件初始化
@@ -57,13 +46,8 @@ int main(void)
 	SPI_Flash_Init();
 	lcd_init();
 	
-<<<<<<< HEAD
 	RTC_Init();
 	RTC_Set_WakeUp(4,0);
-=======
-	//RTC_Init();
-	//RTC_Set_WakeUp();
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 	
 	touch_init();
 	
@@ -99,10 +83,9 @@ int main(void)
 	
 	LCD_Show_CH(80, 160+16, 0, 0);
 	LCD_Show_CH(80+16, 160+16, 1, 0);
-<<<<<<< HEAD
 	LCD_Show_CH(80+32, 160+16, 2, 0);
 	
-	delay_ms(500);
+	delay_ms(100);
 	LCD_ShowPic(0, 0, (u8 *)gImage_Betty2014);
 	
 	while(1)
@@ -120,15 +103,12 @@ int main(void)
 			LCD_ShowString(30,180,tbuf,0);
 		} 
 		
-=======
+
 	//LCD_Show_CH(80+32, 160+16, 2, 0);
 	
 	//delay_ms(500);
 	//LCD_ShowPic(0, 0, (u8 *)gImage_Betty2014);
 	
-	while(1)
-	{
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 		get_touch_ad_filled(&touch_add);
 		printf("x = %4d y = %4d\r\n", touch_add.x, touch_add.y);
 		delay_ms(500);
