@@ -2,11 +2,8 @@
 #define _RTC_H_
 #include "stm32f4xx.h"
 
-<<<<<<< HEAD
+
 typedef struct {
-=======
-typedef  struct {
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 	u8 hour;
 	u8 min;
 	u8 sec;
@@ -17,15 +14,12 @@ typedef  struct {
 	u8 week;
 } TIME_DATE_TYPEDEF;
 
-<<<<<<< HEAD
-extern TIME_DATE_TYPEDEF time_date;
 
-=======
 
 extern TIME_DATE_TYPEDEF time_date;
 
 
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
+
 u8 RTC_Init(void);						//RTC³õÊ¼»¯
 u8 RTC_Wait_Synchro(void);				//µÈ´ýÍ¬²½
 u8 RTC_Init_Mode(void);					//½øÈë³õÊ¼»¯Ä£Ê½
@@ -33,7 +27,7 @@ void RTC_Write_BKR(u32 BKRx,u32 data);	//Ð´ºó±¸ÇøÓòSRAM
 u32 RTC_Read_BKR(u32 BKRx);				//¶Áºó±¸ÇøÓòSRAM
 u8 RTC_DEC2BCD(u8 val);					//Ê®½øÖÆ×ª»»ÎªBCDÂë
 u8 RTC_BCD2DEC(u8 val);					//BCDÂë×ª»»ÎªÊ®½øÖÆÊý¾Ý
-<<<<<<< HEAD
+
 u8 RTC_Set_Time(u8 hour,u8 min,u8 sec,u8 ampm);			//RTCÊ±¼äÉèÖÃ
 u8 RTC_Set_Date(u8 year,u8 month,u8 date,u8 week); 		//RTCÈÕÆÚÉèÖÃ
 void RTC_Get_Time(TIME_DATE_TYPEDEF *p);	//»ñÈ¡RTCÊ±¼ä
@@ -45,7 +39,7 @@ u8 Calcu_Week(u16 year,u8 month,u8 day);				//¸ù¾ÝÊäÈëµÄÄêÔÂÈÕ,¼ÆËãµ±ÈÕËùÊôÐÇÆÚ¼
 //void MY_NVIC_PriorityGroupConfig(u8 NVIC_Group);	
 
 
-=======
+
 //u8 RTC_Set_Time(u8 hour,u8 min,u8 sec,u8 ampm);			//RTCÊ±¼äÉèÖÃ
 //u8 RTC_Set_Date(u8 year,u8 month,u8 date,u8 week); 		//RTCÈÕÆÚÉèÖÃ
 void RTC_Get_Time(TIME_DATE_TYPEDEF *p);	//»ñÈ¡RTCÊ±¼ä
@@ -56,5 +50,4 @@ u8 RTC_Get_Week(u16 year,u8 month,u8 day);				//¸ù¾ÝÊäÈëµÄÄêÔÂÈÕ,¼ÆËãµ±ÈÕËùÊôÐÇÆ
 //void MY_NVIC_Init(u8 NVIC_PreemptionPriority,u8 NVIC_SubPriority,u8 NVIC_Channel,u8 NVIC_Group);	 
 //void MY_NVIC_PriorityGroupConfig(u8 NVIC_Group);	
 
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 #endif

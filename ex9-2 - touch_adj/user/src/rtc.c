@@ -3,7 +3,7 @@
 
 TIME_DATE_TYPEDEF time_date;  //定义一个自定义类型的变量
 
-<<<<<<< HEAD
+
 //等待RSF同步
 //返回值:0,成功;1,失败;
 u8 RTC_Wait_Synchro(void)
@@ -21,8 +21,7 @@ u8 RTC_Wait_Synchro(void)
 	RTC->WPR = 0XFF;  //使能RTC寄存器写保护
 	return 0;
 }
-=======
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
+
 
 //RTC进入初始化模式
 //返回值:0,成功;1,失败;
@@ -38,18 +37,14 @@ u8 RTC_Init_Mode(void)
     if(retry==0)return 1;	//同步失败
 	else return 0; 			//同步成功 
 }
-<<<<<<< HEAD
+
 
 //RTC写入后备区域SRAM, 备份区域读写都要先打开电源接口时钟, 可以在RTC_Init函数中操作
-=======
-//RTC写入后备区域SRAM
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 //BKPx:后备区寄存器编号,范围:0~19
 //data:要写入的数据,32位长度
 void RTC_Write_BKR(u32 BKRx,u32 data)
 {
 	u32 temp=0; 
-<<<<<<< HEAD
 	temp=RTC_BASE+0x50+BKRx*4; //定位BKRx的地址  
 	(*(u32*)temp)=data; 
 }
@@ -61,43 +56,22 @@ u32 RTC_Read_BKR(u32 BKRx)
 {
 	u32 temp=0; 
 	temp=RTC_BASE+0x50+BKRx*4; //定位BKRx的地址  
-	return (*(u32*)temp); 
-=======
-	temp=RTC_BASE+0x50+BKRx*4;   
-	(*(u32*)temp)=data; 
+	return (*(u32*)temp);   //返回读取到的值
 }
-//RTC读取后备区域SRAM
-//BKPx:后备区寄存器编号,范围:0~19
-//返回值:读取到的数据
-u32 RTC_Read_BKR(u32 BKRx)
-{
-	u32 temp=0; 
-	
-	temp=RTC_BASE+0x50+BKRx*4;  
-	return (*(u32*)temp);		//返回读取到的值
-	
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
-}
+
 
 //十进制转换为BCD码
 //val:要转换的十进制数
 //返回值:BCD码
 u8 RTC_DEC2BCD(u8 val)
 {
-<<<<<<< HEAD
-	u8 bcdhigh = 0;
-=======
 	u8 bcdhigh = 0; 
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 	while(val>=10)
 	{
 		bcdhigh++;
 		val-=10;
-<<<<<<< HEAD
-	}
-=======
+
 	} 
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 	return ((u8)(bcdhigh<<4)|val);
 }
 //BCD码转换为十进制数据
@@ -105,25 +79,21 @@ u8 RTC_DEC2BCD(u8 val)
 //返回值:十进制数据
 u8 RTC_BCD2DEC(u8 val)
 {
-<<<<<<< HEAD
 	u8 temp = 0;
 	temp = (val>>4)*10;  //十位以上值
 	return (temp+(val&0x0F));  //再加上低4位对应值
 }
 
 /***************************************************
-=======
 	u8 temp=0;
 	temp=(val>>4)*10;
 	return (temp+(val&0X0F));
 }
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 //RTC时间设置
 //hour,min,sec:小时,分钟,秒钟
 //ampm:AM/PM,0=AM/24H,1=PM.
 //返回值:0,成功
 //       1,进入初始化模式失败 
-<<<<<<< HEAD
 ***************************************************/
 u8 RTC_Set_Time(u8 hour, u8 min, u8 sec, u8 ampm)
 {
@@ -138,20 +108,8 @@ u8 RTC_Set_Time(u8 hour, u8 min, u8 sec, u8 ampm)
 	return 0;
 }
 
-=======
-u8 RTC_Set_Time(u8 hour,u8 min,u8 sec,u8 ampm)
-{
-	u32 temp=0;
-	//关闭RTC寄存器写保护
-	RTC->WPR=0xCA;
-	RTC->WPR=0x53; 
-	if(RTC_Init_Mode())return 1;//进入RTC初始化模式失败
-	temp=(((u32)ampm&0X01)<<22)|((u32)RTC_DEC2BCD(hour)<<16)|((u32)RTC_DEC2BCD(min)<<8)|(RTC_DEC2BCD(sec));
-	RTC->TR=temp;
-	RTC->ISR&=~(1<<7);			//退出RTC初始化模式 
-	return 0; 
-}
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
+
+
 /***************************************************
 //RTC日期设置
 //year,month,date:年(0~99),月(1~12),日(0~31)
@@ -159,7 +117,7 @@ u8 RTC_Set_Time(u8 hour,u8 min,u8 sec,u8 ampm)
 //返回值:0,成功
 //       1,进入初始化模式失败 
 ***************************************************/
-<<<<<<< HEAD
+
 u8 RTC_Set_Date(u8 year, u8 month, u8 date, u8 week)
 {
 	u32 temp = 0;
@@ -205,22 +163,6 @@ void RTC_Get_Date(TIME_DATE_TYPEDEF *p)
 }
 
 
-
-=======
-u8 RTC_Set_Date(u8 year,u8 month,u8 date,u8 week)
-{
-	u32 temp=0;
- 	//关闭RTC寄存器写保护
-	RTC->WPR=0xCA;
-	RTC->WPR=0x53; 
-	if(RTC_Init_Mode())return 1;//进入RTC初始化模式失败
-	temp=(((u32)week&0X07)<<13)|((u32)RTC_DEC2BCD(year)<<16)|((u32)RTC_DEC2BCD(month)<<8)|(RTC_DEC2BCD(date)); 
-	RTC->DR=temp;
-	RTC->ISR&=~(1<<7);			//退出RTC初始化模式 
-	return 0; 
-}
-
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 /***********************************
 //初始化RTC
 //返回值： 0--初始化成功
@@ -251,33 +193,26 @@ u8 RTC_Init(void)
 		RTC->WPR=0x53;
 		if(RTC_Init_Mode()) return 2;  //进入RTC初始化模式失败
 		RTC->PRER = 0XFF;  //RTC同步分频器系数(0~7FFF), [14:0]
-<<<<<<< HEAD
 		RTC->PRER |= 0X7F<<16;  ////RTC异步分频器系数(1~0x7F), [14:0]
-=======
 		RTC->PRER = 0X7F<<16;  ////RTC异步分频器系数(1~0x7F), [14:0]
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 		RTC->CR &= ~(1<<6);  //rtc设置为24小时格式
 		RTC->ISR &= ~(1<<7);  //退出rtc初始化模式
 		RTC->WPR = 0XFF;  //写入任意值可使能rtc寄存器写保护
 		
-<<<<<<< HEAD
 		RTC_Set_Time(11,44,0,0);  //设置时间
 		RTC_Set_Date(16,9,16,5);  //设置日期
 		//RTC_Set_AlarmA(7,0,0,10);  //设置闹钟时间
 		RTC_Write_BKR(0, 0X5151);
 		//RTC->BKP0R = 0x5151;  //标记一下已经配置过了
-=======
 		RTC_Set_Time(22,50,0,0);  //设置时间
 		RTC_Set_Date(16,9,17,2);  //设置日期
 		//RTC_Set_AlarmA(7,0,0,10);  //设置闹钟时间
 		RTC->BKP0R = 0x5151;  //标记一下已经配置过了
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
 					
 	}
 	return 0;
 }
 
-<<<<<<< HEAD
 //周期性唤醒定时器设置
 //wksel:000,RTC/16;001,RTC/8;010,RTC/4;011,RTC/2;
 //      10x,ck_spre,1Hz;11x,1Hz,且cnt值增加2^16(即cnt+2^16)
@@ -342,5 +277,3 @@ u8 Calcu_Week(u16 year, u8 month, u8 day)
 	if(temp2==0)temp2=7;
 	return temp2;
 }
-=======
->>>>>>> 7e8e2f2f302479fe386b5349102bc04ccab6e040
