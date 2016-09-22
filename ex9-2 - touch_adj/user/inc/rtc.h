@@ -39,15 +39,4 @@ u8 Calcu_Week(u16 year,u8 month,u8 day);				//¸ù¾İÊäÈëµÄÄêÔÂÈÕ,¼ÆËãµ±ÈÕËùÊôĞÇÆÚ¼
 //void MY_NVIC_PriorityGroupConfig(u8 NVIC_Group);	
 
 
-
-//u8 RTC_Set_Time(u8 hour,u8 min,u8 sec,u8 ampm);			//RTCÊ±¼äÉèÖÃ
-//u8 RTC_Set_Date(u8 year,u8 month,u8 date,u8 week); 		//RTCÈÕÆÚÉèÖÃ
-void RTC_Get_Time(TIME_DATE_TYPEDEF *p);	//»ñÈ¡RTCÊ±¼ä
-void RTC_Get_Date(TIME_DATE_TYPEDEF *p);//»ñÈ¡RTCÈÕÆÚ
-//void RTC_Set_AlarmA(u8 week,u8 hour,u8 min,u8 sec);		//ÉèÖÃÄÖÖÓÊ±¼ä(°´ĞÇÆÚÄÖÁå,24Ğ¡Ê±ÖÆ)
-void RTC_Set_WakeUp(u8 wksel,u16 cnt);					//ÖÜÆÚĞÔ»½ĞÑ¶¨Ê±Æ÷ÉèÖÃ
-u8 RTC_Get_Week(u16 year,u8 month,u8 day);				//¸ù¾İÊäÈëµÄÄêÔÂÈÕ,¼ÆËãµ±ÈÕËùÊôĞÇÆÚ¼¸
-//void MY_NVIC_Init(u8 NVIC_PreemptionPriority,u8 NVIC_SubPriority,u8 NVIC_Channel,u8 NVIC_Group);	 
-//void MY_NVIC_PriorityGroupConfig(u8 NVIC_Group);	
-
 #endif

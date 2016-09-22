@@ -24,7 +24,6 @@ void led_init(void)
 	GPIOC->PUPDR &=~(0X3<<0);    //无上/下拉
 	
 	BEEP=0;
-	LED2=1;
-	LED3=1;
-	LED4=1;
+	LED5=1;
+	LED6=1;
 }

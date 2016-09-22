@@ -1,11 +1,14 @@
 /*****************************************************************************
 @File name:  
-@Description: 开机进行校准, 校准后执行其他程序, 添加绘画板程序验证校准是否OK 
+@Description: 显示RTC时间,按一个按键开关LED5 
 @Author: Harry Wu
-@Version: V1.0
+@Version: V1.3
 @Date: 
 @History: 
-		V1.0:画板还无法正常使用, while(1)中其他程序导致了延时
+		V1.0: 开机校准, 添加绘图板程序
+		V1.2: 修正合并引起的错误
+		V1.3: 将校准数据保存到24c02里, 这样不用每次开机都校准; 加上触摸屏按下扫描处理函数,按一次反转一次LED5
+
 
 		
 *****************************************************************************/
@@ -24,6 +27,7 @@
 #include "lcd.h"
 #include "rtc.h"
 #include "touch.h"
+#include "led.h"
 
 
 u8 *p="hello world1234567890\r\n";
@@ -31,7 +35,7 @@ u8 buf[100];
 //u8 sta;
 int main(void)
 {
-	_TOUCH_CSYS_TYPEDEF touch_add;
+	_TOUCH_CSYS_TYPEDEF touch_addr;
 	//Stm32_Clock_Init(336, 8, 2, 7);  //系统时钟186MHz
 	
 	u8 t;
@@ -51,7 +55,7 @@ int main(void)
 	RTC_Set_WakeUp(4,0);
 	
 	touch_init();
-	touch_adj();
+	//touch_adj();
 
 	
 	Draw_Circle(120,160,100);
@@ -82,7 +86,7 @@ int main(void)
 	delay_ms(100);
 
 	BACK_COLOR = GREEN;
-	LCD_ShowString(80,160,"hello, how are you?",0);
+	LCD_ShowString(80,160, "hello, how are you?",0);
 	
 	LCD_Show_CH(80, 160+16, 0, 0);
 	LCD_Show_CH(80+16, 160+16, 1, 0);
@@ -91,6 +95,8 @@ int main(void)
 	
 	delay_ms(100);
 	LCD_ShowPic(0, 0, (u8 *)gImage_Betty2014);
+	
+	LCD_DrawSolidRectangle(50, 50,100,100,RED);
 	
 	while(1)
 	{
@@ -107,22 +113,37 @@ int main(void)
 			LCD_ShowString(30,280,tbuf,0);
 		} 
 		
-		CNV_touch2lcd(&touch_add);
-		if(touch_add.x!=0xffff)
+		touch_scanf(&touch_addr, 0);
+		if(touch_addr.x>50 &&touch_addr.x<100 &&touch_addr.y>50 &&touch_addr.y<100 )
 		{
-			LCD_DrawPoint(touch_add.x,touch_add.y);
-			LCD_DrawPoint(touch_add.x+1,touch_add.y);
-			LCD_DrawPoint(touch_add.x,touch_add.y+1);
-			LCD_DrawPoint(touch_add.x+1,touch_add.y+1);
+			LED5=!LED5;
+			if(LED5)  //如果灯是灭的
+			{
+				LCD_DrawSolidRectangle(50, 50,100,100,RED);
+			}
+			else
+			{
+				LCD_DrawSolidRectangle(50, 50,100,100,GREEN);
+			}
 		}
+		
+		
+//		CNV_touch2lcd(&touch_add);
+//		if(touch_add.x!=0xffff)
+//		{
+//			LCD_DrawPoint(touch_add.x,touch_add.y);
+//			LCD_DrawPoint(touch_add.x+1,touch_add.y);
+//			LCD_DrawPoint(touch_add.x,touch_add.y+1);
+//			LCD_DrawPoint(touch_add.x+1,touch_add.y+1);
+//		}
 		
 
 	
 
 	
 	
-		get_touch_ad_filled(&touch_add);
-		printf("x = %4d y = %4d\r\n", touch_add.x, touch_add.y);
+//		get_touch_ad_filled(&touch_addr);
+//		printf("x = %4d y = %4d\r\n", touch_addr.x, touch_addr.y);
 		//delay_ms(100);
 
 //		printf("0x%x\r\n",SPI_FLASH_TYPE);

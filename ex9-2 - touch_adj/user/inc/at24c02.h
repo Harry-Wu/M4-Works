@@ -10,6 +10,9 @@
 #define ACK3		3   //写数据错误
 #define ACK4		4   //重复起始后发器件地址无响应
 
+#define TOUCH_ADJ_OR 0XA0
+#define TOUCH_ADJ_ADDR 0XA1
+
 
 void at24c02_init(void);
 u8 at24c02_write_byte(u16 innter,u8 _data);

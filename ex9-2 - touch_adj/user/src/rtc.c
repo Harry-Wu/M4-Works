@@ -85,10 +85,6 @@ u8 RTC_BCD2DEC(u8 val)
 }
 
 /***************************************************
-	u8 temp=0;
-	temp=(val>>4)*10;
-	return (temp+(val&0X0F));
-}
 //RTC时间设置
 //hour,min,sec:小时,分钟,秒钟
 //ampm:AM/PM,0=AM/24H,1=PM.
@@ -194,7 +190,6 @@ u8 RTC_Init(void)
 		if(RTC_Init_Mode()) return 2;  //进入RTC初始化模式失败
 		RTC->PRER = 0XFF;  //RTC同步分频器系数(0~7FFF), [14:0]
 		RTC->PRER |= 0X7F<<16;  ////RTC异步分频器系数(1~0x7F), [14:0]
-		RTC->PRER = 0X7F<<16;  ////RTC异步分频器系数(1~0x7F), [14:0]
 		RTC->CR &= ~(1<<6);  //rtc设置为24小时格式
 		RTC->ISR &= ~(1<<7);  //退出rtc初始化模式
 		RTC->WPR = 0XFF;  //写入任意值可使能rtc寄存器写保护
@@ -204,10 +199,6 @@ u8 RTC_Init(void)
 		//RTC_Set_AlarmA(7,0,0,10);  //设置闹钟时间
 		RTC_Write_BKR(0, 0X5151);
 		//RTC->BKP0R = 0x5151;  //标记一下已经配置过了
-		RTC_Set_Time(22,50,0,0);  //设置时间
-		RTC_Set_Date(16,9,17,2);  //设置日期
-		//RTC_Set_AlarmA(7,0,0,10);  //设置闹钟时间
-		RTC->BKP0R = 0x5151;  //标记一下已经配置过了
 					
 	}
 	return 0;

@@ -38,4 +38,6 @@ void get_touch_ad_filled(_TOUCH_CSYS_TYPEDEF *p);
 void touch_adj(void);
 void CNV_touch2lcd(_TOUCH_CSYS_TYPEDEF *p);
 
+void touch_scanf(_TOUCH_CSYS_TYPEDEF *p,u8 mode);
+
 #endif

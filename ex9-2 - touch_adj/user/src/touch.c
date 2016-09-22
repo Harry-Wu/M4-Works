@@ -2,9 +2,13 @@
 #include "touch.h"
 #include "delay.h"
 #include "lcd.h"
+#include "at24c02.h"
+
 
 void touch_init(void)
 {
+	u8 touch_adj_or_not;  //触摸屏是否被校准标识符
+	
 	//T_SCK(PB0)----普通功能推挽输出  
 	//T_PEN(PB1)----普通输入,无上下拉   
 	//T_CS(PC13)----普通功能推挽输出
@@ -34,6 +38,17 @@ void touch_init(void)
 	GPIOF->PUPDR  &=~(0X03<<22);  //无上下拉
 	T_MOSI = 0;
 	
+	//读取触摸屏是否已经校准过参数
+	at24c02_read_byte(TOUCH_ADJ_OR, &touch_adj_or_not);
+	
+	if(touch_adj_or_not!=0x51)//如果没有校准过,进入校准程序
+	{
+		touch_adj();
+		touch_adj_or_not=0x51;  //标识符置为已校准
+		at24c02_write_byte(TOUCH_ADJ_OR, touch_adj_or_not);
+		at24c02_write_bytes(TOUCH_ADJ_ADDR, sizeof(_TOUCH_ADJ_TYPEDEF), (u8 *)&touch_adj_parm);
+	}
+	at24c02_read_bytes(TOUCH_ADJ_ADDR, sizeof(_TOUCH_ADJ_TYPEDEF), (u8 *)&touch_adj_parm);
 }
 
 //获取X/Y方向触摸屏坐标转换的结果
@@ -271,3 +286,36 @@ void CNV_touch2lcd(_TOUCH_CSYS_TYPEDEF *p)
 		p->y=0xffff;
 	}
 }
+
+//触摸按下识别
+//mode=0, 非连续识别, mode=1, 连续识别
+
+void touch_scanf(_TOUCH_CSYS_TYPEDEF *p, u8 mode)
+{
+	static u8 touch_sta=1;  //touch_sta=1允许识别
+	_TOUCH_CSYS_TYPEDEF touch;
+	touch.x = 0xffff;
+	touch.y = 0xffff;
+	
+	if(mode)  //连续识别
+	{
+		touch_sta = 1;  //按下没有释放时, 重复调用touch_scanf函数, 可以再次识别
+	}
+	if((touch_sta==1)&&(T_PEN==0))  //允许按键识别, 并且触摸屏被按下
+	{
+		delay_ms(5);  //延时消抖
+		if(T_PEN==0)
+		{
+			get_touch_ad_filled(p);  //得到触摸屏的x,y值
+			touch.x=touch_adj_parm.fx * p->x +touch_adj_parm.x_offset;
+			touch.y=touch_adj_parm.fy * p->y +touch_adj_parm.y_offset;
+			touch_sta=0;    //自锁
+		}
+	}
+	else if(T_PEN == 1)
+	{
+		touch_sta = 1;
+	}
+	*p = touch;
+}
+
