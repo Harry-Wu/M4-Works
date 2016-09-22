@@ -1,0 +1,11 @@
+.\objects\key.o: user\src\key.c
+.\objects\key.o: .\CMSIS\stm32f4xx.h
+.\objects\key.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h
+.\objects\key.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\key.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\objects\key.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\objects\key.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+.\objects\key.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h
+.\objects\key.o: .\CMSIS\system_stm32f4xx.h
+.\objects\key.o: .\user\inc\key.h
+.\objects\key.o: .\user\inc\io_bit.h

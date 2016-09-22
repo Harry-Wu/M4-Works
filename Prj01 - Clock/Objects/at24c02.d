@@ -1,0 +1,13 @@
+.\objects\at24c02.o: user\src\at24c02.c
+.\objects\at24c02.o: .\CMSIS\stm32f4xx.h
+.\objects\at24c02.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h
+.\objects\at24c02.o: D:\Program\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\at24c02.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\objects\at24c02.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\objects\at24c02.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+.\objects\at24c02.o: D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h
+.\objects\at24c02.o: .\CMSIS\system_stm32f4xx.h
+.\objects\at24c02.o: .\user\inc\iic.h
+.\objects\at24c02.o: .\user\inc\io_bit.h
+.\objects\at24c02.o: .\user\inc\at24c02.h
+.\objects\at24c02.o: .\user\inc\delay.h
