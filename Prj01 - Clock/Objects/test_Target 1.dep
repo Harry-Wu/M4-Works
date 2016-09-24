@@ -1,5 +1,5 @@
 Dependencies for Project 'test', Target 'Target 1': (DO NOT MODIFY !)
-F (.\CMSIS\system_stm32f4xx.c)(0x57E2A84E)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\system_stm32f4xx.o --omf_browse .\objects\system_stm32f4xx.crf --depend .\objects\system_stm32f4xx.d)
+F (.\CMSIS\system_stm32f4xx.c)(0x57E2A84E)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\system_stm32f4xx.o --omf_browse .\objects\system_stm32f4xx.crf --depend .\objects\system_stm32f4xx.d)
 I (CMSIS\stm32f4xx.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
 I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
@@ -8,8 +8,8 @@ I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x56
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625A350)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625A350)
 I (CMSIS\system_stm32f4xx.h)(0x57DCA723)
-F (.\CMSIS\startup_stm32f40_41xxx.s)(0x57DCA723)(--cpu Cortex-M4.fp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include--pd "__UVISION_VERSION SETA 520" --pd "_RTE_ SETA 1" --pd "STM32F407xx SETA 1"--list .\listings\startup_stm32f40_41xxx.lst --xref -o .\objects\startup_stm32f40_41xxx.o --depend .\objects\startup_stm32f40_41xxx.d)
-F (.\user\src\at24c02.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\at24c02.o --omf_browse .\objects\at24c02.crf --depend .\objects\at24c02.d)
+F (.\CMSIS\startup_stm32f40_41xxx.s)(0x57DCA723)(--cpu Cortex-M4.fp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include--pd "__UVISION_VERSION SETA 520" --pd "_RTE_ SETA 1" --pd "STM32F407xx SETA 1"--list .\listings\startup_stm32f40_41xxx.lst --xref -o .\objects\startup_stm32f40_41xxx.o --depend .\objects\startup_stm32f40_41xxx.d)
+F (.\user\src\at24c02.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\at24c02.o --omf_browse .\objects\at24c02.crf --depend .\objects\at24c02.d)
 I (.\CMSIS\stm32f4xx.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
 I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
@@ -22,7 +22,7 @@ I (.\user\inc\iic.h)(0x57DCFD7D)
 I (.\user\inc\io_bit.h)(0x57DCA723)
 I (.\user\inc\at24c02.h)(0x57E36546)
 I (.\user\inc\delay.h)(0x57DCBD4D)
-F (.\user\src\delay.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\delay.o --omf_browse .\objects\delay.crf --depend .\objects\delay.d)
+F (.\user\src\delay.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\delay.o --omf_browse .\objects\delay.crf --depend .\objects\delay.d)
 I (.\CMSIS\stm32f4xx.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
 I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
@@ -32,7 +32,7 @@ I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x56
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625A350)
 I (.\CMSIS\system_stm32f4xx.h)(0x57DCA723)
 I (.\user\inc\delay.h)(0x57DCBD4D)
-F (.\user\src\flash.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\flash.o --omf_browse .\objects\flash.crf --depend .\objects\flash.d)
+F (.\user\src\flash.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\flash.o --omf_browse .\objects\flash.crf --depend .\objects\flash.d)
 I (.\user\inc\flash.h)(0x57DCFD80)
 I (.\CMSIS\stm32f4xx.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
@@ -45,7 +45,7 @@ I (.\CMSIS\system_stm32f4xx.h)(0x57DCA723)
 I (.\user\inc\io_bit.h)(0x57DCA723)
 I (.\user\inc\spi.h)(0x57DCFD82)
 I (.\user\inc\delay.h)(0x57DCBD4D)
-F (.\user\src\iic.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\iic.o --omf_browse .\objects\iic.crf --depend .\objects\iic.d)
+F (.\user\src\iic.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\iic.o --omf_browse .\objects\iic.crf --depend .\objects\iic.d)
 I (.\CMSIS\stm32f4xx.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
 I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
@@ -56,7 +56,7 @@ I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x56
 I (.\CMSIS\system_stm32f4xx.h)(0x57DCA723)
 I (.\user\inc\iic.h)(0x57DCFD7D)
 I (.\user\inc\io_bit.h)(0x57DCA723)
-F (.\user\src\key.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
+F (.\user\src\key.c)(0x57E64FC2)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
 I (.\CMSIS\stm32f4xx.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
 I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
@@ -65,9 +65,9 @@ I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x56
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625A350)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625A350)
 I (.\CMSIS\system_stm32f4xx.h)(0x57DCA723)
-I (.\user\inc\key.h)(0x57DCFD81)
+I (.\user\inc\key.h)(0x57E61430)
 I (.\user\inc\io_bit.h)(0x57DCA723)
-F (.\user\src\lcd.c)(0x57E2A793)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\lcd.o --omf_browse .\objects\lcd.crf --depend .\objects\lcd.d)
+F (.\user\src\lcd.c)(0x57E2A793)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\lcd.o --omf_browse .\objects\lcd.crf --depend .\objects\lcd.d)
 I (.\CMSIS\stm32f4xx.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
 I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
@@ -76,11 +76,11 @@ I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x56
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625A350)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625A350)
 I (.\CMSIS\system_stm32f4xx.h)(0x57DCA723)
-I (.\user\inc\lcd.h)(0x57DCFD82)
+I (.\user\inc\lcd.h)(0x57E6916C)
 I (.\user\inc\io_bit.h)(0x57DCA723)
 I (.\user\inc\delay.h)(0x57DCBD4D)
 I (D:\Program\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x56FE42DE)
-F (.\user\src\led.c)(0x57E379B1)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
+F (.\user\src\led.c)(0x57E379B1)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
 I (.\CMSIS\stm32f4xx.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
 I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
@@ -91,7 +91,7 @@ I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x56
 I (.\CMSIS\system_stm32f4xx.h)(0x57DCA723)
 I (.\user\inc\led.h)(0x57E378FC)
 I (.\user\inc\io_bit.h)(0x57DCA723)
-F (.\user\src\main.c)(0x57E3EB12)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\user\src\main.c)(0x57EA7EAE)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (.\CMSIS\stm32f4xx.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
 I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
@@ -100,7 +100,7 @@ I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x56
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625A350)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625A350)
 I (.\CMSIS\system_stm32f4xx.h)(0x57DCA723)
-I (.\user\inc\key.h)(0x57DCFD81)
+I (.\user\inc\key.h)(0x57E61430)
 I (.\user\inc\io_bit.h)(0x57DCA723)
 I (.\user\inc\led.h)(0x57E378FC)
 I (.\user\inc\uart.h)(0x57DD07CB)
@@ -109,10 +109,11 @@ I (D:\Program\Keil_v5\ARM\ARMCC\include\string.h)(0x56FE42DE)
 I (.\user\inc\at24c02.h)(0x57E36546)
 I (.\user\inc\delay.h)(0x57DCBD4D)
 I (.\user\inc\flash.h)(0x57DCFD80)
-I (.\user\inc\lcd.h)(0x57DCFD82)
+I (.\user\inc\lcd.h)(0x57E6916C)
 I (.\user\inc\rtc.h)(0x57E3D9F8)
 I (.\user\inc\touch.h)(0x57E376B6)
-F (.\user\src\spi.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\spi.o --omf_browse .\objects\spi.crf --depend .\objects\spi.d)
+I (.\user\inc\adc.h)(0x57E7771A)
+F (.\user\src\spi.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\spi.o --omf_browse .\objects\spi.crf --depend .\objects\spi.d)
 I (.\CMSIS\stm32f4xx.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
 I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
@@ -122,7 +123,7 @@ I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x56
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625A350)
 I (.\CMSIS\system_stm32f4xx.h)(0x57DCA723)
 I (.\user\inc\spi.h)(0x57DCFD82)
-F (.\user\src\uart.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\uart.o --omf_browse .\objects\uart.crf --depend .\objects\uart.d)
+F (.\user\src\uart.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\uart.o --omf_browse .\objects\uart.crf --depend .\objects\uart.d)
 I (.\CMSIS\stm32f4xx.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
 I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
@@ -132,7 +133,7 @@ I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x56
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625A350)
 I (.\CMSIS\system_stm32f4xx.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\ARMCC\include\stdio.h)(0x56FE42DE)
-F (.\user\src\font.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\font.o --omf_browse .\objects\font.crf --depend .\objects\font.d)
+F (.\user\src\font.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\font.o --omf_browse .\objects\font.crf --depend .\objects\font.d)
 I (.\CMSIS\stm32f4xx.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
 I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
@@ -141,8 +142,8 @@ I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x56
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625A350)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625A350)
 I (.\CMSIS\system_stm32f4xx.h)(0x57DCA723)
-F (.\user\src\pic.c)(0x57DCA723)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\pic.o --omf_browse .\objects\pic.crf --depend .\objects\pic.d)
-F (.\user\src\rtc.c)(0x57E3EB4F)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\rtc.o --omf_browse .\objects\rtc.crf --depend .\objects\rtc.d)
+F (.\user\src\pic.c)(0x57E69124)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\pic.o --omf_browse .\objects\pic.crf --depend .\objects\pic.d)
+F (.\user\src\rtc.c)(0x57E61430)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\rtc.o --omf_browse .\objects\rtc.crf --depend .\objects\rtc.d)
 I (.\user\inc\rtc.h)(0x57E3D9F8)
 I (.\CMSIS\stm32f4xx.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
@@ -156,7 +157,7 @@ I (.\user\inc\delay.h)(0x57DCBD4D)
 I (.\user\inc\led.h)(0x57E378FC)
 I (.\user\inc\io_bit.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\ARMCC\include\stdio.h)(0x56FE42DE)
-F (.\user\src\touch.c)(0x57E37DF5)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\ex9-2 - touch_adj - 副本\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\touch.o --omf_browse .\objects\touch.crf --depend .\objects\touch.d)
+F (.\user\src\touch.c)(0x57E37DF5)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\touch.o --omf_browse .\objects\touch.crf --depend .\objects\touch.d)
 I (.\CMSIS\stm32f4xx.h)(0x57DCA723)
 I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
 I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
@@ -168,5 +169,25 @@ I (.\CMSIS\system_stm32f4xx.h)(0x57DCA723)
 I (.\user\inc\touch.h)(0x57E376B6)
 I (.\user\inc\io_bit.h)(0x57DCA723)
 I (.\user\inc\delay.h)(0x57DCBD4D)
-I (.\user\inc\lcd.h)(0x57DCFD82)
+I (.\user\inc\lcd.h)(0x57E6916C)
 I (.\user\inc\at24c02.h)(0x57E36546)
+F (.\user\src\exti.c)(0x57EA7E72)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\exti.o --omf_browse .\objects\exti.crf --depend .\objects\exti.d)
+I (.\CMSIS\stm32f4xx.h)(0x57DCA723)
+I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
+I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
+I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x5625A350)
+I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x5625A350)
+I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625A350)
+I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625A350)
+I (.\CMSIS\system_stm32f4xx.h)(0x57DCA723)
+I (.\user\inc\led.h)(0x57E378FC)
+I (.\user\inc\io_bit.h)(0x57DCA723)
+F (.\user\src\adc.c)(0x57E77AD6)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I .\user\inc -I .\CMSIS-I "D:\Git_Repository\GitHub\M4-Works\Prj01 - Clock\RTE"-I D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I D:\Program\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F407xx -DSTM32F40_41xxx --C99-o .\objects\adc.o --omf_browse .\objects\adc.crf --depend .\objects\adc.d)
+I (.\CMSIS\stm32f4xx.h)(0x57DCA723)
+I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x5625B70C)
+I (D:\Program\Keil_v5\ARM\ARMCC\include\stdint.h)(0x56FE42DE)
+I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x5625A350)
+I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x5625A350)
+I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625A350)
+I (D:\Program\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x5625A350)
+I (.\CMSIS\system_stm32f4xx.h)(0x57DCA723)

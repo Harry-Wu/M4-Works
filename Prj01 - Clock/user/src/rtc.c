@@ -321,10 +321,10 @@ void RTC_WKUP_IRQHandler(void)
 	if(RTC->ISR&(1<<10))//WK_UP中断标志位?
 	{ 
 		RTC->ISR&=~(1<<10);	//清除中断标志
-		RTC_Get_Time(&time_date);
+		RTC_Get_Time(&time_date);  //定时把获取的时间信息保存到time_date结构体中
 		RTC_Get_Date(&time_date);
 	}
-	LED6 = !LED6;
+	//LED6 = !LED6;
 									
 }
 	

@@ -19,3 +19,4 @@
 .\objects\main.o: .\user\inc\lcd.h
 .\objects\main.o: .\user\inc\rtc.h
 .\objects\main.o: .\user\inc\touch.h
+.\objects\main.o: .\user\inc\adc.h

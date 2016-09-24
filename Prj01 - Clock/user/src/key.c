@@ -1,6 +1,8 @@
 #include "stm32f4xx.h" 
 #include "key.h"
 
+u8 KEY2_MODE=0;  //初始状态下, 不允许修改时间
+
 void key_init(void)
 {
 	//端口时钟使能PA
@@ -26,13 +28,27 @@ void key_delay(void)
 }
 
 
-
-u8 key_scanf(void)
+//按键处理函数
+//返回按键值
+//mode:0,不支持连续按;1,支持连续按;
+//0xFF，没有任何按键按下
+//1，KEY0按下
+//2，KEY1按下
+//3，KEY2按下 
+//4，KEY4按下
+//注意此函数有响应优先级,KEY1>KEY2>KEY3>KEY4!!
+u8 key_scanf(u8 mode)
 {
 	static u8  key_sta=1;    //key_sta=1,允许识别按键
 	static u8 key_time=0;
+
 	static u8 key1,key2,key3;
 	u8 key=NO_KEY;
+	
+	if(mode)
+	{
+		key_sta=1;  //按键松开标志, 支持连按
+	}
 	
 	key3=key2;
 	key2=key1;	
@@ -52,19 +68,25 @@ u8 key_scanf(void)
 		else if(!KEY3)  
 		{
 			key1=KEY3_OK;   
-		}	else if(!KEY4)
+		}	
+		else if(!KEY4)
 		{
 			key1=KEY4_OK;  
 		}	
 		
 		
-		if(key_time==3)
+		if(key_time==3)   //多次识别消抖
 		{
 			key_time=0;
 			
 			if((key3==key1) && (key2==key1))
 			{
 				key=key1;
+				if(key == KEY2_OK)
+				{
+					KEY2_MODE++;
+					if(KEY2_MODE==12) KEY2_MODE=0;
+				}
 				key_sta=0;     //不允许识别按键
 			}
 			
