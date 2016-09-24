@@ -57,7 +57,8 @@ typedef struct _HEADCOLOR
 
 extern u16 BACK_COLOR;
 extern u16 POINT_COLOR;
-extern const unsigned char gImage_Betty2014[];
+//extern const unsigned char gImage_Betty2014[];
+extern const unsigned char gImage_Wallpaper02[];
 
 extern const u8 ASC_II[][16];
 extern const u8 HZ[][32];
