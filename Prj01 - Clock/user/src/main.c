@@ -127,12 +127,9 @@ int main(void)
 			LCD_ShowString(165,260,tbuf,0);
 			sprintf((char*)tbuf,"Week:%d",week_alam.week); 
 			LCD_ShowString(180,280,tbuf,0);
-<<<<<<< HEAD
 			
 			sprintf((char*)tbuf,"Bright:%04d",get_adc()); 
 			LCD_ShowString(100,10,tbuf,0);
-=======
->>>>>>> ff2b7f5d5aa6c5c10f2e2e084338d761df5fe896
 		} 
 		
 		touch_scanf(&touch_addr, 0);
@@ -164,7 +161,6 @@ int main(void)
 				case 1 : 
 					if(key_value==KEY1_OK)
 					{
-<<<<<<< HEAD
 						time_date.hour++;
 						if(time_date.hour==24) time_date.hour = 0;
 						RTC_Set_Time(time_date.hour, time_date.min, time_date.sec, time_date.ampm);
@@ -175,19 +171,11 @@ int main(void)
 						else time_date.hour--;
 						
 						RTC_Set_Time(time_date.hour, time_date.min, time_date.sec, time_date.ampm);
-=======
-						RTC_Set_Time(time_date.hour+1, time_date.min, time_date.sec, time_date.ampm);
-					}
-					else if(key_value==KEY3_OK)
-					{
-						RTC_Set_Time(time_date.hour-1, time_date.min, time_date.sec, time_date.ampm);
->>>>>>> ff2b7f5d5aa6c5c10f2e2e084338d761df5fe896
 					}
 					break;
 				case 2 :
 					if(key_value==KEY1_OK)
 					{
-<<<<<<< HEAD
 						time_date.min++;
 						if(time_date.min==60) time_date.min = 0;
 						RTC_Set_Time(time_date.hour, time_date.min, time_date.sec, time_date.ampm);
@@ -197,19 +185,11 @@ int main(void)
 						if(time_date.min==0) time_date.min = 59;
 						else time_date.min--;
 						RTC_Set_Time(time_date.hour, time_date.min, time_date.sec, time_date.ampm);
-=======
-						RTC_Set_Time(time_date.hour, time_date.min+1, time_date.sec, time_date.ampm);
-					}
-					else if(key_value==KEY3_OK)
-					{
-						RTC_Set_Time(time_date.hour, time_date.min-1, time_date.sec, time_date.ampm);
->>>>>>> ff2b7f5d5aa6c5c10f2e2e084338d761df5fe896
 					}
 					break;
 				case 3 :
 					if(key_value==KEY1_OK)
 					{
-<<<<<<< HEAD
 						time_date.sec++;
 						if(time_date.sec==60) time_date.sec = 0;
 						RTC_Set_Time(time_date.hour, time_date.min, time_date.sec, time_date.ampm);
@@ -219,22 +199,17 @@ int main(void)
 						if(time_date.sec==0) time_date.sec = 59;
 						else time_date.sec--;
 						RTC_Set_Time(time_date.hour, time_date.min, time_date.sec, time_date.ampm);
-=======
-						RTC_Set_Time(time_date.hour, time_date.min, time_date.sec+1, time_date.ampm);
-					}
-					else if(key_value==KEY3_OK)
-					{
-						RTC_Set_Time(time_date.hour, time_date.min, time_date.sec-1, time_date.ampm);
->>>>>>> ff2b7f5d5aa6c5c10f2e2e084338d761df5fe896
 					}
 					break;
 				case 4:
 					if(key_value==KEY1_OK)
 					{
+						
 						RTC_Set_Date(time_date.year+1, time_date.month, time_date.date, time_date.week);
 					}
 					else if(key_value==KEY3_OK)
 					{
+						
 						RTC_Set_Date(time_date.year-1, time_date.month, time_date.date, time_date.week);
 					}	
 					break;
@@ -261,7 +236,6 @@ int main(void)
 				case 7:
 					if(key_value==KEY1_OK)
 					{
-<<<<<<< HEAD
 						time_date.week++;
 						if(time_date.week==8) time_date.week = 1;
 						RTC_Set_Date(time_date.year, time_date.month, time_date.date, time_date.week);
@@ -271,13 +245,6 @@ int main(void)
 						if(time_date.week==1) time_date.week = 7;
 						else time_date.week--;
 						RTC_Set_Date(time_date.year, time_date.month, time_date.date, time_date.week);
-=======
-						RTC_Set_Date(time_date.year, time_date.month, time_date.date, time_date.week+1);
-					}
-					else if(key_value==KEY3_OK)
-					{
-						RTC_Set_Date(time_date.year, time_date.month, time_date.date, time_date.week-1);
->>>>>>> ff2b7f5d5aa6c5c10f2e2e084338d761df5fe896
 					}	
 					break;
 					
