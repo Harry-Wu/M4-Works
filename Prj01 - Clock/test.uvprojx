@@ -467,11 +467,14 @@
               <FileType>1</FileType>
               <FilePath>.\user\src\exti.c</FilePath>
             </File>
+<<<<<<< HEAD
             <File>
               <FileName>adc.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user\src\adc.c</FilePath>
             </File>
+=======
+>>>>>>> ff2b7f5d5aa6c5c10f2e2e084338d761df5fe896
           </Files>
         </Group>
         <Group>
