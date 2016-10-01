@@ -29,6 +29,7 @@
 #include "touch.h"
 #include "led.h"
 #include "adc.h"
+#include "timer.h"
 
 
 u8 *p="hello world1234567890\r\n";
@@ -64,6 +65,7 @@ int main(void)
 	
 	touch_init();
 	adc1_init();
+	timer14_init(5000-1, 8400-1); //Tout=8400/84000000*5000=0.5s
 
 	
 	Draw_Circle(120,160,100);
