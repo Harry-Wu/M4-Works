@@ -1,7 +1,10 @@
 #include "stm32f4xx.h" 
 #include "key.h"
+#include "delay.h"
+#include "clock.h"
 
 u8 KEY2_MODE=0;  //初始状态下, 不允许修改时间
+u16 lngcounter=0; //按键按下时间测量变量  全局变量
 
 void key_init(void)
 {
@@ -21,11 +24,7 @@ void key_init(void)
 	
 }
 
-void key_delay(void)
-{
-	u32 i=0x30000;
-	while(i--);
-}
+
 
 
 //按键处理函数
@@ -100,4 +99,41 @@ u8 key_scanf(u8 mode)
 	return key;
 }
 
-
+/***********************
+** 函数名称: getclk()
+** 功能描述: 检测到一次按键按下并且提起
+** 输　 入: 按键信号
+** 输 出: 0:无按键 1:一次单击 2：一次长按
+** 全局变量: lngcounter
+** 调用模块: 
+** 说明： lngcounter是在中断时间为一毫秒的定时器里自加一的
+** 注意：
+********************/
+u8 keyscanf_longshort(void)
+{
+	if(KEY2==0)
+	{
+		delay_ms(10);  //延时消抖
+		if(KEY2==0)
+		{
+			TIM13->CR1 |=  0X01<<0;  //使能定时器
+			while(KEY2==0) display_tim();
+			TIM13->CR1 &=  ~(0x01<<0); //禁能定时器
+			if(lngcounter>2000)  //如果按键时间超过2s,则为长按, 返回值2
+			{
+				lngcounter = 0;
+				return 2;
+			}
+			else  //短按
+			{
+				lngcounter = 0;
+				return 1;
+			}
+		}
+		else
+		return 0;  //延时消抖后没有检测到按键
+	}
+	
+	else
+	return 0;
+}

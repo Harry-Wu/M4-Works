@@ -477,6 +477,11 @@
               <FileType>1</FileType>
               <FilePath>.\user\src\adc.c</FilePath>
             </File>
+            <File>
+              <FileName>clock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\src\clock.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

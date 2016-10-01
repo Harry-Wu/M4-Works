@@ -3,6 +3,6 @@
 #include "stm32f4xx.h"
 
 void timer14_init(u16 arr, u16 psc);
-void TIM8_TRG_COM_TIM14_IRQHandler(void);
+void timer13_config(u16 arr, u16 psc);
 
 #endif

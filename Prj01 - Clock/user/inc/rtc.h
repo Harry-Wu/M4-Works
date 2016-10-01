@@ -23,6 +23,7 @@ typedef struct {
 
 
 extern TIME_DATE_TYPEDEF time_date;
+//extern Week_Alarm_TYPEDEF week_alam;  //变量保存设置的alarm A数据
 
 
 

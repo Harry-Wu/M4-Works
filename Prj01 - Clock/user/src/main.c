@@ -30,6 +30,7 @@
 #include "led.h"
 #include "adc.h"
 #include "timer.h"
+#include "clock.h"
 
 
 u8 *p="hello world1234567890\r\n";
@@ -38,7 +39,7 @@ u8 buf[100];
 int main(void)
 {
 	_TOUCH_CSYS_TYPEDEF touch_addr;
-	Week_Alarm_TYPEDEF week_alam;  //变量保存设置的alarm A数据
+	//extern Week_Alarm_TYPEDEF week_alam;  //变量保存设置的alarm A数据
 	week_alam.week = 4;
 	week_alam.hour = 22;
 	week_alam.min = 35;
@@ -46,8 +47,8 @@ int main(void)
 	
 	//Stm32_Clock_Init(336, 8, 2, 7);  //系统时钟186MHz
 	
-	u8 t,key_value;
-	u8 tbuf[40];
+	u8 key_value;
+	//u8 tbuf[40];
 
 	NVIC_SetPriorityGrouping(7-2);//设置分组
 	at24c02_init( );
@@ -66,6 +67,7 @@ int main(void)
 	touch_init();
 	adc1_init();
 	timer14_init(5000-1, 8400-1); //Tout=8400/84000000*5000=0.5s
+	timer13_config(10-1, 8400-1);  //1ms
 
 	
 	Draw_Circle(120,160,100);
@@ -110,30 +112,31 @@ int main(void)
 	
 	while(1)
 	{
-		if(t!=time_date.sec)
-		{
-			t=time_date.sec;
-			//RTC_Get_Time(&hour,&min,&sec,&ampm);
-			sprintf((char*)tbuf,"%02d:%02d:%02d",time_date.hour,time_date.min,time_date.sec); 
-			LCD_ShowString(20,240,tbuf,0);			
-			//RTC_Get_Date(&year,&month,&date,&week);
-			sprintf((char*)tbuf,"20%02d-%02d-%02d",time_date.year,time_date.month,time_date.date); 
-			LCD_ShowString(20,260,tbuf,0);	
-			sprintf((char*)tbuf,"Week:%d",time_date.week); 
-			LCD_ShowString(20,280,tbuf,0);
-			sprintf((char*)tbuf,"SET_MODE:%02d",KEY2_MODE); 
-			LCD_ShowString(70,300,tbuf,0);
-			
-			LCD_ShowString(165,240, "Alarm A:",0);
-			sprintf((char*)tbuf,"%02d:%02d:%02d",week_alam.hour, week_alam.min, week_alam.sec); 
-			LCD_ShowString(165,260,tbuf,0);
-			sprintf((char*)tbuf,"Week:%d",week_alam.week); 
-			LCD_ShowString(180,280,tbuf,0);
-			
-			sprintf((char*)tbuf,"Bright:%04d",get_adc()); 
-			LCD_ShowString(100,10,tbuf,0);
-		} 
-		
+		display_tim();
+//		if(t!=time_date.sec)
+//		{
+//			t=time_date.sec;
+//			//RTC_Get_Time(&hour,&min,&sec,&ampm);
+//			sprintf((char*)tbuf,"%02d:%02d:%02d",time_date.hour,time_date.min,time_date.sec); 
+//			LCD_ShowString(20,240,tbuf,0);			
+//			//RTC_Get_Date(&year,&month,&date,&week);
+//			sprintf((char*)tbuf,"20%02d-%02d-%02d",time_date.year,time_date.month,time_date.date); 
+//			LCD_ShowString(20,260,tbuf,0);	
+//			sprintf((char*)tbuf,"Week:%d",time_date.week); 
+//			LCD_ShowString(20,280,tbuf,0);
+//			sprintf((char*)tbuf,"SET_MODE:%02d",KEY2_MODE); 
+//			LCD_ShowString(70,300,tbuf,0);
+//			
+//			LCD_ShowString(165,240, "Alarm A:",0);
+//			sprintf((char*)tbuf,"%02d:%02d:%02d",week_alam.hour, week_alam.min, week_alam.sec); 
+//			LCD_ShowString(165,260,tbuf,0);
+//			sprintf((char*)tbuf,"Week:%d",week_alam.week); 
+//			LCD_ShowString(180,280,tbuf,0);
+//			
+//			sprintf((char*)tbuf,"Bright:%04d",get_adc()); 
+//			LCD_ShowString(100,10,tbuf,0);
+//		} 
+//		
 		touch_scanf(&touch_addr, 0);
 		if(touch_addr.x>10 &&touch_addr.x<50 &&touch_addr.y>10 &&touch_addr.y<50 )
 		{
@@ -147,8 +150,22 @@ int main(void)
 				LCD_DrawSolidRectangle(10, 10,50,50,GREEN);
 			}
 		}
+
+		key_value = keyscanf_longshort();
+		switch(key_value)
+		{
+			case 0:
+				LCD_ShowString(20,60, "NO KEY PRESSED",0);
+				break;
+			case 1:
+				LCD_ShowString(20,80, "SHORT PRESS",0);
+				break;
+			case 2:
+				LCD_ShowString(20,100, "LONG PRESS",0);
+				break;
+		}
 		
-		
+/***************************************************		
 		key_value = key_scanf(0);
 		if(KEY2_MODE != 0)
 		{
@@ -316,6 +333,7 @@ int main(void)
 					break;
 			}
 		}
+***************************************/
 
 //		CNV_touch2lcd(&touch_add);
 //		if(touch_add.x!=0xffff)
