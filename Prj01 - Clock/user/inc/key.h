@@ -21,12 +21,14 @@
 #define KEY4_OK	   4 
 
 extern u8 KEY2_MODE;
+extern u8 setting_mode;
 extern u16 lngcounter;
 
 
 void key_init(void);
 u8 key_scanf(u8 mode);
 u8 keyscanf_longshort(void);
+void key_service(void);
 #endif
 
 

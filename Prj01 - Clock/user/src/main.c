@@ -113,30 +113,7 @@ int main(void)
 	while(1)
 	{
 		display_tim();
-//		if(t!=time_date.sec)
-//		{
-//			t=time_date.sec;
-//			//RTC_Get_Time(&hour,&min,&sec,&ampm);
-//			sprintf((char*)tbuf,"%02d:%02d:%02d",time_date.hour,time_date.min,time_date.sec); 
-//			LCD_ShowString(20,240,tbuf,0);			
-//			//RTC_Get_Date(&year,&month,&date,&week);
-//			sprintf((char*)tbuf,"20%02d-%02d-%02d",time_date.year,time_date.month,time_date.date); 
-//			LCD_ShowString(20,260,tbuf,0);	
-//			sprintf((char*)tbuf,"Week:%d",time_date.week); 
-//			LCD_ShowString(20,280,tbuf,0);
-//			sprintf((char*)tbuf,"SET_MODE:%02d",KEY2_MODE); 
-//			LCD_ShowString(70,300,tbuf,0);
-//			
-//			LCD_ShowString(165,240, "Alarm A:",0);
-//			sprintf((char*)tbuf,"%02d:%02d:%02d",week_alam.hour, week_alam.min, week_alam.sec); 
-//			LCD_ShowString(165,260,tbuf,0);
-//			sprintf((char*)tbuf,"Week:%d",week_alam.week); 
-//			LCD_ShowString(180,280,tbuf,0);
-//			
-//			sprintf((char*)tbuf,"Bright:%04d",get_adc()); 
-//			LCD_ShowString(100,10,tbuf,0);
-//		} 
-//		
+	
 		touch_scanf(&touch_addr, 0);
 		if(touch_addr.x>10 &&touch_addr.x<50 &&touch_addr.y>10 &&touch_addr.y<50 )
 		{
@@ -151,6 +128,7 @@ int main(void)
 			}
 		}
 
+		key_service();
 		key_value = keyscanf_longshort();
 		switch(key_value)
 		{
@@ -163,177 +141,7 @@ int main(void)
 			case 2:
 				LCD_ShowString(20,100, "LONG PRESS",0);
 				break;
-		}
-		
-/***************************************************		
-		key_value = key_scanf(0);
-		if(KEY2_MODE != 0)
-		{
-			if(key_value !=NO_KEY)  //如果有按键按下
-			{
-				RTC_Get_Time(&time_date);
-				RTC_Get_Date(&time_date);
-			}
-			switch(KEY2_MODE)
-			{
-				//设置时间,日期模式
-				case 1 : 
-					if(key_value==KEY1_OK)
-					{
-						time_date.hour++;
-						if(time_date.hour==24) time_date.hour = 0;
-						RTC_Set_Time(time_date.hour, time_date.min, time_date.sec, time_date.ampm);
-					}
-					else if(key_value==KEY3_OK)
-					{
-						if(time_date.hour==0) time_date.hour = 23;
-						else time_date.hour--;
-						
-						RTC_Set_Time(time_date.hour, time_date.min, time_date.sec, time_date.ampm);
-					}
-					break;
-				case 2 :
-					if(key_value==KEY1_OK)
-					{
-						time_date.min++;
-						if(time_date.min==60) time_date.min = 0;
-						RTC_Set_Time(time_date.hour, time_date.min, time_date.sec, time_date.ampm);
-					}
-					else if(key_value==KEY3_OK)
-					{
-						if(time_date.min==0) time_date.min = 59;
-						else time_date.min--;
-						RTC_Set_Time(time_date.hour, time_date.min, time_date.sec, time_date.ampm);
-					}
-					break;
-				case 3 :
-					if(key_value==KEY1_OK)
-					{
-						time_date.sec++;
-						if(time_date.sec==60) time_date.sec = 0;
-						RTC_Set_Time(time_date.hour, time_date.min, time_date.sec, time_date.ampm);
-					}
-					else if(key_value==KEY3_OK)
-					{
-						if(time_date.sec==0) time_date.sec = 59;
-						else time_date.sec--;
-						RTC_Set_Time(time_date.hour, time_date.min, time_date.sec, time_date.ampm);
-					}
-					break;
-				case 4:
-					if(key_value==KEY1_OK)
-					{
-						
-						RTC_Set_Date(time_date.year+1, time_date.month, time_date.date, time_date.week);
-					}
-					else if(key_value==KEY3_OK)
-					{
-						
-						RTC_Set_Date(time_date.year-1, time_date.month, time_date.date, time_date.week);
-					}	
-					break;
-				case 5:
-					if(key_value==KEY1_OK)
-					{
-						RTC_Set_Date(time_date.year, time_date.month+1, time_date.date, time_date.week);
-					}
-					else if(key_value==KEY3_OK)
-					{
-						RTC_Set_Date(time_date.year, time_date.month+1, time_date.date, time_date.week);
-					}	
-					break;
-				case 6:
-					if(key_value==KEY1_OK)
-					{
-						RTC_Set_Date(time_date.year, time_date.month, time_date.date+1, time_date.week);
-					}
-					else if(key_value==KEY3_OK)
-					{
-						RTC_Set_Date(time_date.year, time_date.month, time_date.date-1, time_date.week);
-					}	
-					break;
-				case 7:
-					if(key_value==KEY1_OK)
-					{
-						time_date.week++;
-						if(time_date.week==8) time_date.week = 1;
-						RTC_Set_Date(time_date.year, time_date.month, time_date.date, time_date.week);
-					}
-					else if(key_value==KEY3_OK)
-					{
-						if(time_date.week==1) time_date.week = 7;
-						else time_date.week--;
-						RTC_Set_Date(time_date.year, time_date.month, time_date.date, time_date.week);
-					}	
-					break;
-					
-				//设置闹钟模式	
-				case 8:
-					if(key_value==KEY1_OK)
-					{
-						week_alam.hour++;
-						RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
-					}
-					else if(key_value==KEY3_OK)
-					{
-						week_alam.hour--;
-						RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
-					}	
-					break;
-				case 9:
-					if(key_value==KEY1_OK)
-					{
-						week_alam.min++;
-						RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
-					}
-					else if(key_value==KEY3_OK)
-					{
-						week_alam.min--;
-						RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
-					}	
-					break;
-				case 10:
-					if(key_value==KEY1_OK)
-					{
-						week_alam.sec++;
-						RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
-					}
-					else if(key_value==KEY3_OK)
-					{
-						week_alam.sec--;
-						RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
-					}	
-					break;
-				case 11:
-					if(key_value==KEY1_OK)
-					{
-						week_alam.week++;
-						RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
-					}
-					else if(key_value==KEY3_OK)
-					{
-						week_alam.week--;
-						RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
-					}	
-					break;
-			}
-		}
-		else if(key_value != NO_KEY)  //如果有按键按下
-		{
-			switch(key_value)
-			{
-				case KEY1_OK:
-					LED5 = !LED5;
-					break;
-				case KEY3_OK:
-					LED6 = !LED6;
-					break;
-				case KEY4_OK:
-					BEEP = !BEEP;					
-					break;
-			}
-		}
-***************************************/
+		}		
 
 //		CNV_touch2lcd(&touch_add);
 //		if(touch_add.x!=0xffff)
