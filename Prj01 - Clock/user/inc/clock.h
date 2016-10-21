@@ -4,6 +4,7 @@
 
 extern Week_Alarm_TYPEDEF week_alam;  //变量保存设置的alarm A数据
 
-void display_tim(void);
+void display_init(void);
+void display_time(void);
 
 #endif

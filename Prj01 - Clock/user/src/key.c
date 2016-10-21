@@ -1,7 +1,7 @@
 /*****************************************************************************
 @File name:  
 @Description: 
-	长按KEY2进入或退出修改时间模式(KEY2_MODE==1), 进入修改模式时,相应的时间字段背景色变为绿色;
+	长按KEY2进入或退出修改时间模式(SET_EN_FLAG==1), 进入修改模式时,相应的时间字段背景色变为绿色;
 	时间修改模式下,短按KEY1增加数值, 短按KEY3减小数值;
 	非修改模式下,KEY1开关D5, KEY3开关D6, KEY4开关闹钟BEEP
 @Author: Harry Wu
@@ -17,7 +17,7 @@
 #include "clock.h"
 #include "led.h"
 
-u8 KEY2_MODE=0;  //初始状态下, 不允许修改时间
+u8 SET_EN_FLAG=0;  //初始状态下, 不允许修改时间
 u8 setting_mode=1;  //时间设置模式
 u16 lngcounter=0; //按键按下时间测量变量  全局变量
 u8 key_value, key2_value;  //保存key_scanf和key_scanf_longshort的返回值
@@ -66,7 +66,8 @@ u8 key_scanf(u8 mode)
 	}
 	
 	key3=key2;
-	key2=key1;	
+	key2=key1;
+	delay_ms(1);  //防止一次短按多次识别
 	key_time++;
 	
 	if((key_sta==1)&& ((KEY1==1) || (KEY3==0) || (KEY4==0)))  //允许识别按键，并且有可能是按键按下了
@@ -126,18 +127,18 @@ u8 keyscanf_longshort(void)
 		if(KEY2==0)
 		{
 			TIM13->CR1 |=  0X01<<0;  //使能定时器
-			while(KEY2==0) display_tim();
+			while(KEY2==0) display_time();
 			TIM13->CR1 &=  ~(0x01<<0); //禁能定时器
-			if(lngcounter>2000)  //如果按键时间超过2s,则为长按, 返回值2
+			if(lngcounter>1000)  //如果按键时间超过1s,则为长按, 返回值2
 			{
 				lngcounter = 0;
-				KEY2_MODE = !KEY2_MODE;  //长按在允许和禁止修改时间之间切换
+				SET_EN_FLAG = !SET_EN_FLAG;  //长按在允许和禁止修改时间之间切换
 				return 2;
 			}
 			else  //短按
 			{
 				lngcounter = 0;
-				if(KEY2_MODE) //如果短按前是修改时间模式
+				if(SET_EN_FLAG) //如果短按前是修改时间模式
 				{
 					setting_mode++;
 					if(setting_mode==12) setting_mode=1;
@@ -154,9 +155,9 @@ u8 keyscanf_longshort(void)
 
 void key_service(void)
 {
-	//key2_value = keyscanf_longshort();
+	key2_value = keyscanf_longshort();
 	key_value = key_scanf(0);
-	if(KEY2_MODE != 0)  //如果处于时间修改模式
+	if(SET_EN_FLAG != 0)  //如果处于时间修改模式
 	{
 		if(key_value !=NO_KEY)  //如果有按键按下
 		{
@@ -212,33 +213,55 @@ void key_service(void)
 		case 4:
 			if(key_value==KEY1_OK)
 			{
-				
-				RTC_Set_Date(time_date.year+1, time_date.month, time_date.date, time_date.week);
+				time_date.year++;
+				if(time_date.year==100) time_date.year = 0;
+				RTC_Set_Date(time_date.year, time_date.month, time_date.date, time_date.week);
 			}
 			else if(key_value==KEY3_OK)
 			{
-				
-				RTC_Set_Date(time_date.year-1, time_date.month, time_date.date, time_date.week);
+				if(time_date.year==0) time_date.year = 99;
+				else time_date.year--;
+				RTC_Set_Date(time_date.year, time_date.month, time_date.date, time_date.week);
 			}	
 			break;
 		case 5:
 			if(key_value==KEY1_OK)
 			{
-				RTC_Set_Date(time_date.year, time_date.month+1, time_date.date, time_date.week);
+				time_date.month++;
+				if(time_date.month==13) time_date.month = 1;
+				RTC_Set_Date(time_date.year, time_date.month, time_date.date, time_date.week);
 			}
 			else if(key_value==KEY3_OK)
 			{
-				RTC_Set_Date(time_date.year, time_date.month+1, time_date.date, time_date.week);
+				if(time_date.month==0) time_date.month = 12;
+				else time_date.month--;
+				RTC_Set_Date(time_date.year, time_date.month, time_date.date, time_date.week);
 			}	
 			break;
 		case 6:
 			if(key_value==KEY1_OK)
 			{
-				RTC_Set_Date(time_date.year, time_date.month, time_date.date+1, time_date.week);
+				time_date.date++;
+				if((time_date.month==1||time_date.month==3||time_date.month==5||time_date.month==7||time_date.month==8||time_date.month==10||time_date.month==12) && (time_date.date == 32)) time_date.date=1;
+				if((time_date.month == 4||time_date.month==6||time_date.month==9||time_date.month==11) && (time_date.date == 31)) time_date.date=1;
+				if((time_date.month == 2) && (time_date.year%4==0) && (time_date.date == 30)) time_date.date=1;  //只考虑2000~2099年的闰年
+				if((time_date.month == 2) && (time_date.year%4!=0) && (time_date.date == 29)) time_date.date=1;
+				RTC_Set_Date(time_date.year, time_date.month, time_date.date, time_date.week);
 			}
 			else if(key_value==KEY3_OK)
 			{
-				RTC_Set_Date(time_date.year, time_date.month, time_date.date-1, time_date.week);
+				if(time_date.date==1) 
+				{
+					if((time_date.month==1||time_date.month==3||time_date.month==5||time_date.month==7||time_date.month==8||time_date.month==10||time_date.month==12)) time_date.date=31;
+					if((time_date.month == 4||time_date.month==6||time_date.month==9||time_date.month==11)) time_date.date=30;
+					if(time_date.month == 2) 
+					{
+						if(time_date.year%4 == 0)  time_date.date = 29;//只考虑2000~2099年的闰年
+						else time_date.date = 28;
+					}
+				}
+				else time_date.date--;
+				RTC_Set_Date(time_date.year, time_date.month, time_date.date, time_date.week);
 			}	
 			break;
 		case 7:
@@ -261,11 +284,13 @@ void key_service(void)
 			if(key_value==KEY1_OK)
 			{
 				week_alam.hour++;
+				if(time_date.hour==24) time_date.hour = 0;
 				RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
 			}
 			else if(key_value==KEY3_OK)
 			{
-				week_alam.hour--;
+				if(week_alam.hour==0) week_alam.hour = 23;
+				else week_alam.hour--;
 				RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
 			}	
 			break;
@@ -273,11 +298,13 @@ void key_service(void)
 			if(key_value==KEY1_OK)
 			{
 				week_alam.min++;
+				if(week_alam.min==60) week_alam.min = 0;
 				RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
 			}
 			else if(key_value==KEY3_OK)
 			{
-				week_alam.min--;
+				if(week_alam.min==0) week_alam.min = 59;
+				else week_alam.min--;
 				RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
 			}	
 			break;
@@ -285,11 +312,13 @@ void key_service(void)
 			if(key_value==KEY1_OK)
 			{
 				week_alam.sec++;
+				if(week_alam.sec==60) week_alam.sec = 0;
 				RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
 			}
 			else if(key_value==KEY3_OK)
 			{
-				week_alam.sec--;
+				if(week_alam.sec==0) week_alam.sec = 59;
+				else week_alam.sec--;
 				RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
 			}	
 			break;
@@ -297,11 +326,13 @@ void key_service(void)
 			if(key_value==KEY1_OK)
 			{
 				week_alam.week++;
+				if(week_alam.week==8) week_alam.week = 1;
 				RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
 			}
 			else if(key_value==KEY3_OK)
 			{
-				week_alam.week--;
+				if(week_alam.week==1) week_alam.week = 7;
+				else week_alam.week--;
 				RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
 			}	
 			break;

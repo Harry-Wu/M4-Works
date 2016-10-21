@@ -1,14 +1,16 @@
 /*****************************************************************************
 @File name:  
-@Description: 显示RTC时间,按一个按键开关LED5 
+@Description: 显示RTC时间,按键设置时间或闹钟 
 @Author: Harry Wu
-@Version: V1.3
-@Date: 
+@Version: V1.5
+@Date: 2016-10-03
 @History: 
-		V1.0: 开机校准, 添加绘图板程序
-		V1.2: 修正合并引起的错误
-		V1.3: 将校准数据保存到24c02里, 这样不用每次开机都校准; 加上触摸屏按下扫描处理函数,按一次反转一次LED5
-
+		V1.0: 基于ex9-2, 添加闹钟功能和weak up中断功能
+		V1.1: 增加亮度数值显示功能.
+		V1.2: 加入定时器中断功能, 定时1s闪烁D6. 下一步, 把按键长按短按功能加进去, 使用定时器计数
+		V1.3: 加入长按短按识别功能,为了保证显示刷新,在按键按下时, 插入显示函数
+		V1.4: 在时间修改模式下,相应区段的字符背景色变为绿色. 左上角触摸按键加入状态字符.
+		V1.5: 修复设置时数值超出范围的问题; 每次上电不再初始化闹钟设置,同时间设置, 只设置一次; 优化扫描模式按键函数,假如1ms延时,不再一次短按相应多次. 
 
 		
 *****************************************************************************/
@@ -39,15 +41,11 @@ u8 buf[100];
 int main(void)
 {
 	_TOUCH_CSYS_TYPEDEF touch_addr;
-	//extern Week_Alarm_TYPEDEF week_alam;  //变量保存设置的alarm A数据
-	week_alam.week = 4;
-	week_alam.hour = 22;
-	week_alam.min = 35;
-	week_alam.sec = 0;
+
 	
 	//Stm32_Clock_Init(336, 8, 2, 7);  //系统时钟186MHz
 	
-	u8 key_value;
+	//u8 key_value;
 	//u8 tbuf[40];
 
 	NVIC_SetPriorityGrouping(7-2);//设置分组
@@ -61,7 +59,6 @@ int main(void)
 	lcd_init();
 	
 	RTC_Init();
-	RTC_Set_AlarmA(week_alam.week, week_alam.hour, week_alam.min, week_alam.sec);
 	RTC_Set_WakeUp(4,0);
 	
 	touch_init();
@@ -70,49 +67,11 @@ int main(void)
 	timer13_config(10-1, 8400-1);  //1ms
 
 	
-	Draw_Circle(120,160,100);
-	LCD_DrawLine(0,0,239,319);
-	LCD_DrawRectangle(10,10,60,60);
-	LCD_DrawSolidRectangle(10, 10, 230, 60, RED);
-	Draw_SolidCircle(120,160,50);
-	
-	show_ascii(100, 10, 's', 1);
-	delay_ms(100);
-	show_ascii(108, 10, 'o', 1);
-	delay_ms(100);
-	show_ascii(116, 10, 'l', 1);
-	delay_ms(100);
-	show_ascii(124, 10, 'v', 1);
-	delay_ms(100);
-	show_ascii(132, 10, 'e', 1);
-	
-	show_ascii(100, 30, 'L', 0);
-	delay_ms(100);
-	show_ascii(108, 30, 'O', 0);
-	delay_ms(100);
-	show_ascii(116, 30, 'V', 0);
-	delay_ms(100);
-	show_ascii(124, 30, 'E', 0);
-	delay_ms(100);
-	show_ascii(132, 30, '!', 0);
-	delay_ms(100);
-
-	BACK_COLOR = GREEN;
-	LCD_ShowString(20,160, "hello, how are you?",0);
-	
-	LCD_Show_CH(80, 160+16, 0, 0);
-	LCD_Show_CH(80+16, 160+16, 1, 0);
-	LCD_Show_CH(80+32, 160+16, 2, 0);
-	BACK_COLOR = WHITE;
-	
-	delay_ms(100);
-	LCD_ShowPic(0, 0, (u8 *)gImage_Wallpaper02);
-	
-	LCD_DrawSolidRectangle(10,10,50,50,RED);
+	display_init();
 	
 	while(1)
 	{
-		display_tim();
+		display_time();
 	
 		touch_scanf(&touch_addr, 0);
 		if(touch_addr.x>10 &&touch_addr.x<50 &&touch_addr.y>10 &&touch_addr.y<50 )
@@ -121,27 +80,33 @@ int main(void)
 			if(LED5)  //如果灯是灭的
 			{
 				LCD_DrawSolidRectangle(10, 10,50,50,RED);
+				BACK_COLOR = RED;
+				LCD_ShowString(18, 22, "OFF",0);
+				BACK_COLOR = WHITE;
 			}
 			else
 			{
 				LCD_DrawSolidRectangle(10, 10,50,50,GREEN);
+				BACK_COLOR = GREEN;
+				LCD_ShowString(22, 22, "ON",0);
+				BACK_COLOR = WHITE;
 			}
 		}
 
 		key_service();
-		key_value = keyscanf_longshort();
-		switch(key_value)
-		{
-			case 0:
-				LCD_ShowString(20,60, "NO KEY PRESSED",0);
-				break;
-			case 1:
-				LCD_ShowString(20,80, "SHORT PRESS",0);
-				break;
-			case 2:
-				LCD_ShowString(20,100, "LONG PRESS",0);
-				break;
-		}		
+//		key_value = keyscanf_longshort();
+//		switch(key_value)
+//		{
+//			case 0:
+//				LCD_ShowString(20,60, "NO KEY PRESSED",0);
+//				break;
+//			case 1:
+//				LCD_ShowString(20,80, "SHORT PRESS",0);
+//				break;
+//			case 2:
+//				LCD_ShowString(20,100, "LONG PRESS",0);
+//				break;
+//		}		
 
 //		CNV_touch2lcd(&touch_add);
 //		if(touch_add.x!=0xffff)

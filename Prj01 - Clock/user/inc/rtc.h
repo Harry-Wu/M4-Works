@@ -23,7 +23,7 @@ typedef struct {
 
 
 extern TIME_DATE_TYPEDEF time_date;
-//extern Week_Alarm_TYPEDEF week_alam;  //变量保存设置的alarm A数据
+extern Week_Alarm_TYPEDEF week_alam;  //变量保存设置的alarm A数据
 
 
 
@@ -40,6 +40,7 @@ u8 RTC_Set_Date(u8 year,u8 month,u8 date,u8 week); 		//RTC日期设置
 void RTC_Get_Time(TIME_DATE_TYPEDEF *p);	//获取RTC时间
 void RTC_Get_Date(TIME_DATE_TYPEDEF *p);//获取RTC日期
 void RTC_Set_AlarmA(u8 week,u8 hour,u8 min,u8 sec);		//设置闹钟时间(按星期闹铃,24小时制)
+void RTC_Get_AlamA(Week_Alarm_TYPEDEF *p);
 void RTC_Set_WakeUp(u8 wksel,u16 cnt);					//周期性唤醒定时器设置
 u8 Calcu_Week(u16 year,u8 month,u8 day);				//根据输入的年月日,计算当日所属星期几
 //void MY_NVIC_Init(u8 NVIC_PreemptionPriority,u8 NVIC_SubPriority,u8 NVIC_Channel,u8 NVIC_Group);	 

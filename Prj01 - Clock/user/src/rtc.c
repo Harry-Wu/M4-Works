@@ -4,6 +4,7 @@
 #include "stdio.h"
 
 TIME_DATE_TYPEDEF time_date;  //定义一个自定义类型的变量
+Week_Alarm_TYPEDEF week_alam;
 
 
 //等待RSF同步
@@ -197,8 +198,8 @@ u8 RTC_Init(void)
 		RTC->WPR = 0XFF;  //写入任意值可使能rtc寄存器写保护
 		
 		RTC_Set_Time(22,32,0,0);  //设置时间
-		RTC_Set_Date(16,9,22,4);  //设置日期
-		//RTC_Set_AlarmA(7,0,0,10);  //设置闹钟时间
+		RTC_Set_Date(16,10,3,1);  //设置日期
+		RTC_Set_AlarmA(1,7,0,0);  //设置闹钟时间
 		RTC_Write_BKR(0, 0X5151);
 		//RTC->BKP0R = 0x5151;  //标记一下已经配置过了
 					
@@ -241,7 +242,21 @@ void RTC_Set_AlarmA(u8 week,u8 hour,u8 min,u8 sec)
 	NVIC_SetPriority(RTC_Alarm_IRQn,NVIC_EncodePriority(7-2,2,2));  //设置优先级
 	NVIC_EnableIRQ(RTC_Alarm_IRQn); //外部中断使能（系统中断没有这个使能）	
 }
-	
+
+//获取RTC Alarm A, 按星期闹钟
+//*year,*mon,*date:年,月,日
+//*week:星期
+void RTC_Get_AlamA(Week_Alarm_TYPEDEF *p)
+{
+	u32 temp=0;
+ 	while(RTC_Wait_Synchro());	//等待同步  	 
+	temp=RTC->ALRMAR;
+	p->week=RTC_BCD2DEC((temp>>24)&0X07);
+	p->hour=RTC_BCD2DEC((temp>>16)&0X3F);
+	p->min=RTC_BCD2DEC((temp>>8)&0X7F);
+	p->sec=RTC_BCD2DEC(temp&0X7F);  
+}
+
 /***********************************
 //周期性唤醒定时器设置
 //wksel:000,RTC/16;001,RTC/8;010,RTC/4;011,RTC/2;
@@ -323,6 +338,7 @@ void RTC_WKUP_IRQHandler(void)
 		RTC->ISR&=~(1<<10);	//清除中断标志
 		RTC_Get_Time(&time_date);  //定时把获取的时间信息保存到time_date结构体中
 		RTC_Get_Date(&time_date);
+		RTC_Get_AlamA(&week_alam);
 	}
 	//LED6 = !LED6;
 									

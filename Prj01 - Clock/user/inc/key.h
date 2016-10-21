@@ -20,7 +20,7 @@
 #define KEY3_OK 	3
 #define KEY4_OK	   4 
 
-extern u8 KEY2_MODE;
+extern u8 SET_EN_FLAG;
 extern u8 setting_mode;
 extern u16 lngcounter;
 
