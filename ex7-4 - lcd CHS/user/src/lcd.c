@@ -440,13 +440,14 @@ void LCD_ShowString(u16 x, u16 y, u8 *p, u8 mode)
 
 
 //mode: 0:覆盖模式, 1:叠加模式
-//目前只能指定汉字所在的序号
+//目前只能指定汉字所在数组的序号a
 void LCD_Show_CH(u16 x, u16 y, u8 a, u8 mode)
 {
 	u16 i,j,_data;
 	u16 color = POINT_COLOR;
 	u16 x0 = x, y0=y;
 	
+	//先处理左半部分汉字, 16行
 	for(i=0; i<16; i++)
 	{
 		_data = HZ[a][i];
@@ -478,8 +479,9 @@ void LCD_Show_CH(u16 x, u16 y, u8 a, u8 mode)
 	x0 = x0 + 8;
 	x = x0;
 	y=y0;  //回到最上面一行
-		
-	for(i=16; i<32; i++)  //汉字占32列
+
+	//再处理又半部分汉字, 16行	
+	for(i=16; i<32; i++)  //汉字占16列, 现在一行一行处理右边一半
 	{
 		_data = HZ[a][i];
 		for(j=0; j<8; j++)
