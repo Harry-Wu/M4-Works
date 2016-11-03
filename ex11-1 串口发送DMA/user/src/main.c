@@ -33,9 +33,10 @@
 #include "adc.h"
 #include "timer.h"
 #include "clock.h"
+#include "dma.h"
 
 
-u8 *p="hello world1234567890\r\n";
+char *p="hello world1234567890\r\n";
 u8 buf[100];
 extern u8 write_start_flag;
 extern u8 time_out;
@@ -64,6 +65,7 @@ int main(void)
 	touch_init();
 	adc1_init();
 	
+	dma_init((u32)&USART1->DR);
 	if(KEY1==1)
 	{
 		LCD_ShowString(10, 20, "Erasing flash...", 0);
@@ -123,6 +125,26 @@ int main(void)
 				LCD_DrawSolidRectangle(10, 10,50,50,GREEN);
 				BACK_COLOR = GREEN;
 				LCD_ShowString(22, 22, "开",0);
+				BACK_COLOR = BLACK;
+			}
+		}
+
+		if(touch_addr.x>60 &&touch_addr.x<100 &&touch_addr.y>10 &&touch_addr.y<50 )
+		{
+			dma2_stream7_tranf((u32)p,strlen(p));
+			LED5=!LED5;
+			if(LED5)  //如果灯是灭的
+			{
+				LCD_DrawSolidRectangle(60, 10,100,50,RED);
+				BACK_COLOR = RED;
+				LCD_ShowString(22+50, 22, "发",0);
+				BACK_COLOR = BLACK;
+			}
+			else
+			{
+				LCD_DrawSolidRectangle(60, 10,100,50,GREEN);
+				BACK_COLOR = GREEN;
+				LCD_ShowString(12+50, 22, "再发",0);
 				BACK_COLOR = BLACK;
 			}
 		}
