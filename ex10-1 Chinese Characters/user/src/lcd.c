@@ -302,6 +302,47 @@ void Draw_SolidCircle(u16 x0,u16 y0,u16 r)
 	}
 }
 
+// 基于 Bresenham 算法画填充圆
+// r1---OD, r2---ID
+void LCD_FillCircle_Bresenham(u16 x, u16 y, u16 r)
+{
+	int tx = 0, ty1 = r, d = 3 - 2 * r, i;
+
+	while(tx < ty1)
+	{
+		// 画水平两点连线(<45度)
+		for (i = x - ty1; i <= x + ty1; i++)
+		{
+			LCD_DrawPoint(i, y - tx);
+			if (tx != 0)	// 防止水平线重复绘制
+				LCD_DrawPoint(i, y + tx);
+		}
+
+		if (d < 0)			// 取上面的点
+			d += 4 * tx + 6;
+		else				// 取下面的点
+		{
+			// 画水平两点连线(>45度)
+			for (i = x - tx; i <= x + tx; i++)
+			{
+				LCD_DrawPoint(i, y - ty1);
+				LCD_DrawPoint(i, y + ty1);
+			}
+
+			d += 4 * (tx - ty1) + 10, ty1--;
+		}
+
+		tx++;
+	}
+
+	if (tx == ty1)			// 画水平两点连线(=45度)
+		for (i = x - ty1; i <= x + ty1; i++)
+		{
+			LCD_DrawPoint(i, y - tx);
+			LCD_DrawPoint(i, y + tx);
+		}
+}
+
 //////////////////////////////////////////////////////////////////////	 
 //画线
 //x1,y1:起点坐标

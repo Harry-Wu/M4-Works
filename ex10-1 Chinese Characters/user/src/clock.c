@@ -21,6 +21,11 @@ void display_init(void)
 	LCD_DrawRectangle(10,10,60,60);
 	LCD_DrawSolidRectangle(10, 10, 230, 60, RED);
 	Draw_SolidCircle(120,160,50);
+	delay_ms(500);
+	delay_ms(500);
+	LCD_FillCircle_Bresenham(120,160,70);
+	delay_ms(500);
+	delay_ms(500);
 	
 	show_ascii(100, 10, 's', 1);
 	delay_ms(100);
@@ -53,6 +58,9 @@ void display_init(void)
 	
 	delay_ms(100);
 	LCD_ShowPic(0, 0, (u8 *)gImage_Wallpaper01);
+	delay_ms(500);
+	LCD_ShowPic(0, 0, (u8 *)gImage_240x320_71023_106);
+	LCD_FillCircle_Bresenham(48+60+8,146+24,80);
 	
 	POINT_COLOR = WHITE;
 	LCD_DrawSolidRectangle(10,10,50,50,RED);
@@ -73,8 +81,10 @@ void display_init(void)
 	
 	
 	//下面显示电子钟的固定字符
-	sprintf((char*)tbuf,"%02d:%02d:%02d",time_date.hour,time_date.min,time_date.sec); 
-	LCD_ShowString_24x48(24,146,tbuf,0);
+	sprintf((char*)tbuf,"%02d:%02d",time_date.hour,time_date.min); 
+	LCD_ShowString_24x48(48,146,tbuf,0);
+	sprintf((char*)tbuf,"%02d",time_date.sec); 
+	LCD_ShowString(48+24*5,146+48-24,tbuf,0);
 	sprintf((char*)tbuf,"20%02d-%02d-%02d",time_date.year,time_date.month,time_date.date); 
 	LCD_ShowString(20,280,tbuf,0);
 	sprintf((char*)tbuf,"Week:%d",time_date.week); 
@@ -93,17 +103,17 @@ void display_time(void)
 		t=time_date.sec;
 		if(SET_EN_FLAG && setting_mode==1 ) BACK_COLOR = GREEN;//如果是时间修改模式1
 		sprintf((char*)tbuf,"%02d",time_date.hour); 
-		LCD_ShowString_24x48(24,146,tbuf,0);
+		LCD_ShowString_24x48(48,146,tbuf,0);
 		BACK_COLOR = BLACK;
 		//show_ascii(20+16,240,':',0);
 		if(SET_EN_FLAG && setting_mode==2 ) BACK_COLOR = GREEN;//如果是时间修改模式2
 		sprintf((char*)tbuf,"%02d",time_date.min); 
-		LCD_ShowString_24x48(24+24*3,146,tbuf,0);
+		LCD_ShowString_24x48(48+24*3,146,tbuf,0);
 		BACK_COLOR = BLACK;
 		//show_ascii(20+24+16*sizeof(time_date.min),240,':',0);
 		if(SET_EN_FLAG && setting_mode==3 ) BACK_COLOR = GREEN;//如果是时间修改模式3
 		sprintf((char*)tbuf,"%02d",time_date.sec); 
-		LCD_ShowString_24x48(24+24*3+24*3,146,tbuf,0);
+		LCD_ShowString(48+24*3+24*2,146+48-24,tbuf,0);
 		BACK_COLOR = BLACK;
 		
 		if(SET_EN_FLAG && setting_mode==4) BACK_COLOR = GREEN;//如果是时间修改模式4
