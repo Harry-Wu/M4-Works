@@ -57,11 +57,12 @@ typedef struct _HEADCOLOR
 
 extern u16 BACK_COLOR;
 extern u16 POINT_COLOR;
-extern const unsigned char gImage_240x320_71023_106[];
-extern const unsigned char gImage_Wallpaper01[];
+extern const unsigned char gImage_240x320_Pic[];
+//extern const unsigned char gImage_Wallpaper01[];
 
 extern const u8 ASC_II[][16];
-extern const u8 ASC_II_24x48[][144];
+//extern const u8 ASC_II_24x48[][144];
+extern const u8 ASC_II_16x32[][64];
 extern const u8 HZ[][32];
 
 void lcd_init(void);
@@ -71,16 +72,20 @@ void LCD_DrawPoint(u16 x,u16 y);
 void Draw_Circle(u16 x0,u16 y0,u16 r);
 void Draw_SolidCircle(u16 x0,u16 y0,u16 r);
 void LCD_FillCircle_Bresenham(u16 x, u16 y, u16 r);
+void LCD_REFillCircle_Bresenham(u16 x, u16 y, u16 r);
 void LCD_DrawLine(u16 x1, u16 y1, u16 x2, u16 y2);
 void LCD_DrawRectangle(u16 x1, u16 y1, u16 x2, u16 y2);
 void LCD_DrawSolidRectangle(u16 x1, u16 y1, u16 x2, u16 y2, u16 color);
+void LCD_DrawSolidRectangle_Background(u16 x1, u16 y1, u16 x2, u16 y2);
 
 
 void show_ascii(u16 x, u16 y, s8 a, u8 mode);
 void show_ascii_24x48(u16 x, u16 y, s8 a, u8 mode);
+void show_ascii_16x32(u16 x, u16 y, s8 a, u8 mode);
 
 void LCD_ShowString(u16 x, u16 y, u8 *p, u8 mode);
 void LCD_ShowString_24x48(u16 x, u16 y, u8 *p, u8 mode);
+void LCD_ShowString_16x32(u16 x, u16 y, u8 *p, u8 mode);
 //void LCD_Show_CH(u16 x, u16 y, u8 a, u8 mode);
 void LCD_Show_CH(u16 x, u16 y, u8 *p, u8 mode);
 

@@ -8,6 +8,8 @@
 #include "adc.h"
 #include "key.h"
 #include "delay.h"
+#include "clock.h"
+#include "MATH.h"
 
 
 static u8 t;
@@ -57,16 +59,18 @@ void display_init(void)
 	//BACK_COLOR = WHITE;
 	
 	delay_ms(100);
-	LCD_ShowPic(0, 0, (u8 *)gImage_Wallpaper01);
+	//LCD_ShowPic(0, 0, (u8 *)gImage_Wallpaper01);
 	delay_ms(500);
-	LCD_ShowPic(0, 0, (u8 *)gImage_240x320_71023_106);
-	LCD_FillCircle_Bresenham(48+60+8,146+24,80);
+	LCD_ShowPic(0, 0, (u8 *)gImage_240x320_Pic);
 	
-	POINT_COLOR = WHITE;
+	POINT_COLOR = BLACK;
+	//LCD_FillCircle_Bresenham(CLOCK_X,CLOCK_Y,CLOCK_R);
+	//Draw_Circle(CLOCK_X,CLOCK_Y,CLOCK_R);
+	
 	LCD_DrawSolidRectangle(10,10,50,50,RED);
 	BACK_COLOR = RED;
 	LCD_ShowString(22, 22, "关",0);
-	BACK_COLOR = BLACK;
+	BACK_COLOR = WHITE;
 
 	
 //	show_ascii_24x48(10, 60, '1', 0);
@@ -81,10 +85,14 @@ void display_init(void)
 	
 	
 	//下面显示电子钟的固定字符
+	showsec(time_date.sec);
+	
 	sprintf((char*)tbuf,"%02d:%02d",time_date.hour,time_date.min); 
-	LCD_ShowString_24x48(48,146,tbuf,0);
+	LCD_ShowString_16x32(78,CLOCK_Y-16,tbuf,0);
 	sprintf((char*)tbuf,"%02d",time_date.sec); 
-	LCD_ShowString(48+24*5,146+48-24,tbuf,0);
+	LCD_ShowString(78+16*5,CLOCK_Y-4,tbuf,0);
+	BACK_COLOR = BLACK;
+	POINT_COLOR = WHITE;
 	sprintf((char*)tbuf,"20%02d-%02d-%02d",time_date.year,time_date.month,time_date.date); 
 	LCD_ShowString(20,280,tbuf,0);
 	sprintf((char*)tbuf,"Week:%d",time_date.week); 
@@ -101,63 +109,96 @@ void display_time(void)
 	if(t!=time_date.sec)
 	{
 		t=time_date.sec;
-		if(SET_EN_FLAG && setting_mode==1 ) BACK_COLOR = GREEN;//如果是时间修改模式1
-		sprintf((char*)tbuf,"%02d",time_date.hour); 
-		LCD_ShowString_24x48(48,146,tbuf,0);
-		BACK_COLOR = BLACK;
-		//show_ascii(20+16,240,':',0);
-		if(SET_EN_FLAG && setting_mode==2 ) BACK_COLOR = GREEN;//如果是时间修改模式2
-		sprintf((char*)tbuf,"%02d",time_date.min); 
-		LCD_ShowString_24x48(48+24*3,146,tbuf,0);
-		BACK_COLOR = BLACK;
-		//show_ascii(20+24+16*sizeof(time_date.min),240,':',0);
-		if(SET_EN_FLAG && setting_mode==3 ) BACK_COLOR = GREEN;//如果是时间修改模式3
-		sprintf((char*)tbuf,"%02d",time_date.sec); 
-		LCD_ShowString(48+24*3+24*2,146+48-24,tbuf,0);
-		BACK_COLOR = BLACK;
+		showsec(time_date.sec);
+		LCD_DrawSolidRectangle_Background(78, CLOCK_Y-16, 78+16*2-1, CLOCK_Y+16-1);
+		LCD_DrawSolidRectangle_Background(78+16*3, CLOCK_Y-16, 78+16*5-1, CLOCK_Y+16-1);
+		LCD_DrawSolidRectangle_Background(78+16*5, CLOCK_Y-4, 78+16*5+16, CLOCK_Y-4+16);
 		
-		if(SET_EN_FLAG && setting_mode==4) BACK_COLOR = GREEN;//如果是时间修改模式4
+		POINT_COLOR = BLACK;
+		if(SET_EN_FLAG && setting_mode==1 ) POINT_COLOR = MAGENTA;//如果是时间修改模式1
+		sprintf((char*)tbuf,"%02d",time_date.hour); 
+		LCD_ShowString_16x32(78,CLOCK_Y-16,tbuf,1);
+		POINT_COLOR = BLACK;
+		//show_ascii(20+16,240,':',0);
+		if(SET_EN_FLAG && setting_mode==2 ) POINT_COLOR = MAGENTA;//如果是时间修改模式2
+		sprintf((char*)tbuf,"%02d",time_date.min); 
+		LCD_ShowString_16x32(78+16*3,CLOCK_Y-16,tbuf,1);
+		POINT_COLOR = BLACK;
+		//show_ascii(20+24+16*sizeof(time_date.min),240,':',0);
+		if(SET_EN_FLAG && setting_mode==3 ) POINT_COLOR = MAGENTA;//如果是时间修改模式3
+		//LCD_DrawSolidRectangle_Background(78+16*5, CLOCK_Y+8, 78+16*5+16, CLOCK_Y+8+16);
+		sprintf((char*)tbuf,"%02d",time_date.sec); 
+		LCD_ShowString(78+16*5,CLOCK_Y-4,tbuf,1);
+		BACK_COLOR = BLACK;
+		POINT_COLOR = WHITE;
+		
+		if(SET_EN_FLAG && setting_mode==4) POINT_COLOR = MAGENTA;//如果是时间修改模式4
 		sprintf((char*)tbuf,"20%02d",time_date.year); 
 		LCD_ShowString(20,280,tbuf,0);
-		BACK_COLOR = BLACK;
-		if(SET_EN_FLAG && setting_mode==5) BACK_COLOR = GREEN;//如果是时间修改模式5
+		POINT_COLOR = WHITE;
+		if(SET_EN_FLAG && setting_mode==5) POINT_COLOR = MAGENTA;//如果是时间修改模式5
 		sprintf((char*)tbuf,"%02d",time_date.month); 
 		LCD_ShowString(20+40,280,tbuf,0);
-		BACK_COLOR = BLACK;
-		if(SET_EN_FLAG && setting_mode==6) BACK_COLOR = GREEN;//如果是时间修改模式5
+		POINT_COLOR = WHITE;
+		if(SET_EN_FLAG && setting_mode==6) POINT_COLOR = MAGENTA;//如果是时间修改模式5
 		sprintf((char*)tbuf,"%02d",time_date.date); 
 		LCD_ShowString(20+40+24,280,tbuf,0);
-		BACK_COLOR = BLACK;
+		POINT_COLOR = WHITE;
 		
-		if(SET_EN_FLAG && setting_mode==7) BACK_COLOR = GREEN;//如果是时间修改模式7
+		if(SET_EN_FLAG && setting_mode==7) POINT_COLOR = MAGENTA;//如果是时间修改模式7
 		sprintf((char*)tbuf,"%d",time_date.week); 
 		LCD_ShowString(20+40,300,tbuf,0);
-		BACK_COLOR = BLACK;
+		POINT_COLOR = WHITE;
 //		sprintf((char*)tbuf,"SET_EN:%d",SET_EN_FLAG); 
 //		LCD_ShowString(20,300,tbuf,0);
 //		sprintf((char*)tbuf,"setting_mode:%02d",setting_mode); 
 //		LCD_ShowString(120,300,tbuf,0);
 		
 		//LCD_ShowString(165,240, "Alarm A:",0);
-		if(SET_EN_FLAG && setting_mode==8) BACK_COLOR = GREEN;//如果是时间修改模式8
+		if(SET_EN_FLAG && setting_mode==8) POINT_COLOR = MAGENTA;//如果是时间修改模式8
 		sprintf((char*)tbuf,"%02d",week_alam.hour); 
 		LCD_ShowString(165,280,tbuf,0);
-		BACK_COLOR = BLACK;
-		if(SET_EN_FLAG && setting_mode==9) BACK_COLOR = GREEN;//如果是时间修改模式9
+		POINT_COLOR = WHITE;
+		if(SET_EN_FLAG && setting_mode==9) POINT_COLOR = MAGENTA;//如果是时间修改模式9
 		sprintf((char*)tbuf,"%02d",week_alam.min); 
 		LCD_ShowString(165+24,280,tbuf,0);
-		BACK_COLOR = BLACK;
-		if(SET_EN_FLAG && setting_mode==10) BACK_COLOR = GREEN;//如果是时间修改模式10
+		POINT_COLOR = WHITE;
+		if(SET_EN_FLAG && setting_mode==10) POINT_COLOR = MAGENTA;//如果是时间修改模式10
 		sprintf((char*)tbuf,"%02d",week_alam.sec); 
 		LCD_ShowString(165+24+24,280,tbuf,0);
-		BACK_COLOR = BLACK;
-		if(SET_EN_FLAG && setting_mode==11) BACK_COLOR = GREEN;//如果是时间修改模式11
+		POINT_COLOR = WHITE;
+		if(SET_EN_FLAG && setting_mode==11) POINT_COLOR = MAGENTA;//如果是时间修改模式11
 		sprintf((char*)tbuf,"%d",week_alam.week); 
 		LCD_ShowString(180+40,300,tbuf,0);
-		BACK_COLOR = BLACK;
+		POINT_COLOR = WHITE;
 		
 		sprintf((char*)tbuf,"亮度:%04d",get_adc()); 
 		LCD_ShowString(100,10,tbuf,0);
 	} 
 		
+}
+
+/////////////////////////////////////////////////////////
+//显示秒针
+void showsec(float i)
+{
+	static float sec=0;
+	u16 color=POINT_COLOR;
+
+	//if(sec!=k)
+	{
+
+		{
+		
+			//LCD_REDrawLine(CLOCK_X+10*sin(sec),CLOCK_Y-10*cos(sec),CLOCK_X+80*sin(sec),CLOCK_Y-80*cos(sec));
+			LCD_REFillCircle_Bresenham(CLOCK_X+CLOCK_R*sin(sec),CLOCK_Y-CLOCK_R*cos(sec), 5);
+			POINT_COLOR=BLACK;
+			//Draw_Circle(CLOCK_X,CLOCK_Y,CLOCK_R);
+			sec=6*i*PI/180;
+			//LCD_DrawLine(CLOCK_X+10*sin(sec),CLOCK_Y-10*cos(sec),CLOCK_X+CLOCK_R*sin(sec),CLOCK_Y-CLOCK_R*cos(sec));
+			LCD_FillCircle_Bresenham(CLOCK_X+CLOCK_R*sin(sec),CLOCK_Y-CLOCK_R*cos(sec),5);
+		}
+	
+	}
+	POINT_COLOR=color;
 }

@@ -4,8 +4,8 @@
 #include "flash.h"
 #include "stdlib.h"
 
-u16 BACK_COLOR=0XFFFF;  //背景色在这里设置
-u16 POINT_COLOR=0X0000;  //绘图颜色
+u16 BACK_COLOR=WHITE;  //背景色在这里设置
+u16 POINT_COLOR=BLACK;  //绘图颜色
 
 void lcd_port_init(void)
 {
@@ -343,6 +343,59 @@ void LCD_FillCircle_Bresenham(u16 x, u16 y, u16 r)
 		}
 }
 
+// 基于 Bresenham 算法画填充圆, 填充色为背景图片
+// r1---OD, r2---ID
+void LCD_REFillCircle_Bresenham(u16 x, u16 y, u16 r)
+{
+	u16 color=POINT_COLOR;
+	int tx = 0, ty1 = r, d = 3 - 2 * r, i;
+
+	while(tx < ty1)
+	{
+		// 画水平两点连线(<45度)
+		for (i = x - ty1; i <= x + ty1; i++)
+		{
+			//画点 
+			POINT_COLOR=((u16)gImage_240x320_Pic[((y-tx)*240+i)*2+1+8]<<8) + (u16)gImage_240x320_Pic[((y-tx)*240+i)*2+8];
+			LCD_DrawPoint(i, y - tx);
+			if (tx != 0)	// 防止水平线重复绘制
+			{
+				POINT_COLOR=((u16)gImage_240x320_Pic[((y+tx)*240+i)*2+1+8]<<8) + (u16)gImage_240x320_Pic[((y+tx)*240+i)*2+8];
+				LCD_DrawPoint(i, y + tx);
+			}
+		}
+
+		if (d < 0)			// 取上面的点
+			d += 4 * tx + 6;
+		else				// 取下面的点
+		{
+			// 画水平两点连线(>45度)
+			for (i = x - tx; i <= x + tx; i++)
+			{
+				POINT_COLOR=((u16)gImage_240x320_Pic[((y-ty1)*240+i)*2+1+8]<<8) + (u16)gImage_240x320_Pic[((y-ty1)*240+i)*2+8];
+				LCD_DrawPoint(i, y - ty1);
+				POINT_COLOR=((u16)gImage_240x320_Pic[((y+ty1)*240+i)*2+1+8]<<8) + (u16)gImage_240x320_Pic[((y+ty1)*240+i)*2+8];
+				LCD_DrawPoint(i, y + ty1);
+			}
+
+			d += 4 * (tx - ty1) + 10, ty1--;
+		}
+
+		tx++;
+	}
+
+	if (tx == ty1)			// 画水平两点连线(=45度)
+		for (i = x - ty1; i <= x + ty1; i++)
+		{
+			POINT_COLOR=((u16)gImage_240x320_Pic[((y-tx)*240+i)*2+1+8]<<8) + (u16)gImage_240x320_Pic[((y-tx)*240+i)*2+8];
+			LCD_DrawPoint(i, y - tx);
+			POINT_COLOR=((u16)gImage_240x320_Pic[((y+tx)*240+i)*2+1+8]<<8) + (u16)gImage_240x320_Pic[((y+tx)*240+i)*2+8];
+			LCD_DrawPoint(i, y + tx);
+		}
+	POINT_COLOR=color;
+}
+
+
 //////////////////////////////////////////////////////////////////////	 
 //画线
 //x1,y1:起点坐标
@@ -432,6 +485,102 @@ void LCD_DrawSolidRectangle(u16 x1, u16 y1, u16 x2, u16 y2, u16 color)
 	LCD_ILI9341_Parameter (319&0xff);
 }
 
+//////////////////////////////////////////////////////////////////////	 
+//画实心矩形背景	  
+//(x1,y1),(x2,y2):矩形的对角坐标
+//调用时x1<x2, y1<y2
+void LCD_DrawSolidRectangle_Background(u16 x1, u16 y1, u16 x2, u16 y2)
+{
+	u32 i;
+	u16 x0=x1;
+	u16 color=POINT_COLOR;
+	LCD_ILI9341_CMD(0X2A);  //发送x坐标
+	LCD_ILI9341_Parameter(x1>>8);
+	LCD_ILI9341_Parameter(x1&0xff);
+	LCD_ILI9341_Parameter(x2>>8);
+	LCD_ILI9341_Parameter(x2&0xff);
+	
+	LCD_ILI9341_CMD(0X2B);  //发送y坐标
+	LCD_ILI9341_Parameter(y1>>8);
+	LCD_ILI9341_Parameter(y1&0xff);
+	LCD_ILI9341_Parameter(y2>>8);
+	LCD_ILI9341_Parameter(y2&0xff);
+	
+	LCD_ILI9341_CMD(0X2C);  //写GRAM指令，支持连续写
+	for(i=(abs(x2-x1)+1)*(abs(y2-y1)+1); i>0; i--)
+	{
+		POINT_COLOR=((u16)gImage_240x320_Pic[(y1*240+x1)*2+1+8]<<8) + (u16)gImage_240x320_Pic[(y1*240+x1)*2+8];
+		lcd_send_show_data(POINT_COLOR);
+		x1++;
+		if(x1>x2)
+		{
+			x1 = x0;
+			y1++;
+		}
+	}
+	//写完之后把x,y限定的区域改回成全屏幕
+	LCD_ILI9341_CMD(0X2A);
+	LCD_ILI9341_Parameter (0x00);
+	LCD_ILI9341_Parameter (0x00);
+	LCD_ILI9341_Parameter (239>>8); 
+	LCD_ILI9341_Parameter (239&0xff);
+	LCD_ILI9341_CMD(0X2B);
+	LCD_ILI9341_Parameter (0x00); 
+	LCD_ILI9341_Parameter (0x00);
+	LCD_ILI9341_Parameter (319>>8); 
+	LCD_ILI9341_Parameter (319&0xff);
+	
+	POINT_COLOR=color;
+}
+
+
+
+//////////////////////////////////////////////////////////////////////	 
+//重画背景线
+//x1,y1:起点坐标
+//x2,y2:终点坐标  
+void LCD_REDrawLine(u16 x1, u16 y1, u16 x2, u16 y2)
+{
+	u16 t; 
+	u16 color=POINT_COLOR;
+	int xerr=0,yerr=0,delta_x,delta_y,distance; 
+	int incx,incy,uRow,uCol; 
+	delta_x=x2-x1; //计算坐标增量 
+	delta_y=y2-y1; 
+	uRow=x1; 
+	uCol=y1; 
+	if(delta_x>0)incx=1; //设置单步方向 
+	else if(delta_x==0)incx=0;//垂直线 
+	else {incx=-1;delta_x=-delta_x;} 
+	if(delta_y>0)incy=1; 
+	else if(delta_y==0)incy=0;//水平线 
+	else{incy=-1;delta_y=-delta_y;} 
+	if( delta_x>delta_y)distance=delta_x; //选取基本增量坐标轴 
+	else distance=delta_y; 
+	for(t=0;t<=distance+1;t++ )//画线输出 
+	{  
+		
+		//画点 
+		POINT_COLOR=((u16)gImage_240x320_Pic[(uCol*240+uRow)*2+1+8]<<8) + (u16)gImage_240x320_Pic[(uCol*240+uRow)*2+8];
+		LCD_DrawPoint(uRow,uCol);
+		xerr+=delta_x ; 
+		yerr+=delta_y ; 
+		if(xerr>distance) 
+		{ 
+			xerr-=distance; 
+			uRow+=incx; 
+		} 
+		if(yerr>distance) 
+		{ 
+			yerr-=distance; 
+			uCol+=incy; 
+		}
+		
+	}  
+	POINT_COLOR=color;
+}
+
+
 //mode: 0:覆盖模式, 1:叠加模式
 void show_ascii(u16 x, u16 y, s8 a, u8 mode)
 {
@@ -470,17 +619,58 @@ void show_ascii(u16 x, u16 y, s8 a, u8 mode)
 }
 
 //纵向取模, 高位在前, 每字符24*48像素
-void show_ascii_24x48(u16 x, u16 y, s8 a, u8 mode)
+//void show_ascii_24x48(u16 x, u16 y, s8 a, u8 mode)
+//{
+//	u8 i,j,k,_data;
+//	u16 color = POINT_COLOR;
+//	u16 y0 = y;
+//	a = a - ' '; //得到待显示字符的字模在库中行号
+//	for(i=0; i<24; i++)  //24列
+//	{
+//		for(j=0; j<6; j++)  //处理一列中的6字节数据
+//		{
+//			_data = ASC_II_24x48[a][i*6+j];
+//			for(k=0; k<8; k++)
+//			{
+//				if(_data&0x80)  //判断最高位有没有像素点
+//				{
+//					LCD_DrawPoint(x,y);
+//				}
+//				else
+//				{
+//					if(mode==0)
+//					{
+//						POINT_COLOR=BACK_COLOR;
+//						LCD_DrawPoint(x,y);
+//						POINT_COLOR=color;
+//					}
+//				}
+//				//一个点处理完后进行的动作
+//				_data = _data<<1;
+//				y++;
+//				
+//			}
+//			if(y-y0==48)  //判断一列是否结束，结束的话，x不变，y+8
+//			{
+//				y = y0;
+//				x++;
+//			}
+//		}			
+//	}
+//}
+
+//纵向逐列式取模, 高位在前, 每字符16*32像素
+void show_ascii_16x32(u16 x, u16 y, s8 a, u8 mode)
 {
 	u8 i,j,k,_data;
 	u16 color = POINT_COLOR;
 	u16 y0 = y;
 	a = a - ' '; //得到待显示字符的字模在库中行号
-	for(i=0; i<24; i++)  //24列
+	for(i=0; i<16; i++)  //16列
 	{
-		for(j=0; j<6; j++)  //处理一列中的6字节数据
+		for(j=0; j<4; j++)  //处理一列中的4字节(32位)数据
 		{
-			_data = ASC_II_24x48[a][i*6+j];
+			_data = ASC_II_16x32[a][i*4+j]; //4字节
 			for(k=0; k<8; k++)
 			{
 				if(_data&0x80)  //判断最高位有没有像素点
@@ -501,7 +691,7 @@ void show_ascii_24x48(u16 x, u16 y, s8 a, u8 mode)
 				y++;
 				
 			}
-			if(y-y0==48)  //判断一列是否结束，结束的话，x不变，y+8
+			if(y-y0==32)  //判断一列是否结束，结束的话，x不变，y+8
 			{
 				y = y0;
 				x++;
@@ -509,6 +699,8 @@ void show_ascii_24x48(u16 x, u16 y, s8 a, u8 mode)
 		}			
 	}
 }
+
+
 
 //可以显示ascii码和汉字
 void LCD_ShowString(u16 x, u16 y, u8 *p, u8 mode)
@@ -535,14 +727,26 @@ void LCD_ShowString(u16 x, u16 y, u8 *p, u8 mode)
 }
 
 //显示24*48像素ascii码
-void LCD_ShowString_24x48(u16 x, u16 y, u8 *p, u8 mode)
+//void LCD_ShowString_24x48(u16 x, u16 y, u8 *p, u8 mode)
+//{
+//	while(*p != '\0')
+//	{
+//		
+//			show_ascii_24x48(x, y, *p, mode);
+//			p++;
+//			x = x+24;
+//	}
+//}
+
+//显示16*32像素ascii码
+void LCD_ShowString_16x32(u16 x, u16 y, u8 *p, u8 mode)
 {
 	while(*p != '\0')
 	{
 		
-			show_ascii_24x48(x, y, *p, mode);
+			show_ascii_16x32(x, y, *p, mode);
 			p++;
-			x = x+24;
+			x = x+16;
 	}
 }
 
