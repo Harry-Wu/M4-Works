@@ -1,60 +1,0 @@
-Dependencies for Project 'ex3', Target 'ex3': (DO NOT MODIFY !)
-F (.\CMSIS\system_stm32f4xx.c)(0x56FE3D2C)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I.\CMSIS -I.\user\inc-I D:\Program\Keil_V5\ARM\RV31\INC-I D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include-I D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-DSTM32F40_41xxx -DSTM32F40_41xxx -DSTM32F40_41xxx-o .\obj\system_stm32f4xx.o --omf_browse .\obj\system_stm32f4xx.crf --depend .\obj\system_stm32f4xx.d)
-I (CMSIS\stm32f4xx.h)(0x53DBA48A)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm4.h)(0x538426C6)
-I (D:\Program\Keil_V5\ARM\ARMCC\include\stdint.h)(0x53463A44)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
-I (CMSIS\system_stm32f4xx.h)(0x53DBA49A)
-F (.\CMSIS\startup_stm32f40_41xxx.s)(0x53DBBC54)(--cpu Cortex-M4.fp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I D:\Program\Keil_V5\ARM\RV31\INC-I D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include-I D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include--list .\list\startup_stm32f40_41xxx.lst --xref -o .\obj\startup_stm32f40_41xxx.o --depend .\obj\startup_stm32f40_41xxx.d)
-F (.\user\src\main.c)(0x57A6E50E)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I.\CMSIS -I.\user\inc-I D:\Program\Keil_V5\ARM\RV31\INC-I D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include-I D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-DSTM32F40_41xxx -DSTM32F40_41xxx -DSTM32F40_41xxx-o .\obj\main.o --omf_browse .\obj\main.crf --depend .\obj\main.d)
-I (.\CMSIS\stm32f4xx.h)(0x53DBA48A)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm4.h)(0x538426C6)
-I (D:\Program\Keil_V5\ARM\ARMCC\include\stdint.h)(0x53463A44)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
-I (.\CMSIS\system_stm32f4xx.h)(0x53DBA49A)
-I (.\user\inc\key.h)(0x579DAF27)
-I (.\user\inc\io_bit.h)(0x579DA0B7)
-I (.\user\inc\delay.h)(0x579D680F)
-I (.\user\inc\led.h)(0x57A6D640)
-I (.\user\inc\uart.h)(0x57A6E489)
-I (D:\Program\Keil_V5\ARM\ARMCC\include\stdio.h)(0x53463A44)
-F (.\user\src\key.c)(0x579DAE2A)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I.\CMSIS -I.\user\inc-I D:\Program\Keil_V5\ARM\RV31\INC-I D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include-I D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-DSTM32F40_41xxx -DSTM32F40_41xxx -DSTM32F40_41xxx-o .\obj\key.o --omf_browse .\obj\key.crf --depend .\obj\key.d)
-I (.\CMSIS\stm32f4xx.h)(0x53DBA48A)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm4.h)(0x538426C6)
-I (D:\Program\Keil_V5\ARM\ARMCC\include\stdint.h)(0x53463A44)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
-I (.\CMSIS\system_stm32f4xx.h)(0x53DBA49A)
-I (.\user\inc\key.h)(0x579DAF27)
-I (.\user\inc\io_bit.h)(0x579DA0B7)
-I (.\user\inc\delay.h)(0x579D680F)
-F (.\user\src\delay.c)(0x579D6E9C)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I.\CMSIS -I.\user\inc-I D:\Program\Keil_V5\ARM\RV31\INC-I D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include-I D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-DSTM32F40_41xxx -DSTM32F40_41xxx -DSTM32F40_41xxx-o .\obj\delay.o --omf_browse .\obj\delay.crf --depend .\obj\delay.d)
-I (.\CMSIS\stm32f4xx.h)(0x53DBA48A)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm4.h)(0x538426C6)
-I (D:\Program\Keil_V5\ARM\ARMCC\include\stdint.h)(0x53463A44)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
-I (.\CMSIS\system_stm32f4xx.h)(0x53DBA49A)
-F (.\user\src\led.c)(0x57A6DC4D)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I.\CMSIS -I.\user\inc-I D:\Program\Keil_V5\ARM\RV31\INC-I D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include-I D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-DSTM32F40_41xxx -DSTM32F40_41xxx -DSTM32F40_41xxx-o .\obj\led.o --omf_browse .\obj\led.crf --depend .\obj\led.d)
-I (.\CMSIS\stm32f4xx.h)(0x53DBA48A)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm4.h)(0x538426C6)
-I (D:\Program\Keil_V5\ARM\ARMCC\include\stdint.h)(0x53463A44)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
-I (.\CMSIS\system_stm32f4xx.h)(0x53DBA49A)
-F (.\user\src\uart.c)(0x57A6E6EF)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork -I.\CMSIS -I.\user\inc-I D:\Program\Keil_V5\ARM\RV31\INC-I D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include-I D:\Program\Keil_V5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-DSTM32F40_41xxx -DSTM32F40_41xxx -DSTM32F40_41xxx-o .\obj\uart.o --omf_browse .\obj\uart.crf --depend .\obj\uart.d)
-I (.\CMSIS\stm32f4xx.h)(0x53DBA48A)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm4.h)(0x538426C6)
-I (D:\Program\Keil_V5\ARM\ARMCC\include\stdint.h)(0x53463A44)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmInstr.h)(0x5302A2D0)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cmFunc.h)(0x5302A2D0)
-I (D:\Program\Keil_V5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS\Include\core_cm4_simd.h)(0x5302A2D0)
-I (.\CMSIS\system_stm32f4xx.h)(0x53DBA49A)
-I (D:\Program\Keil_V5\ARM\ARMCC\include\stdio.h)(0x53463A44)
